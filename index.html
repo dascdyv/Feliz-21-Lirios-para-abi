@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi luz, Abi 🌻</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fffdf2;
+            --soft-yellow: #ffecb3;
+            --gold: #d4a017;
+            --text-dark: #5d4037;
+            --sky-blue: #87CEEB; /* Color celeste para el mensaje superior */
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #fffdf2 0%, #fffae6 100%);
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            flex-direction: column; /* Cambiado para permitir el texto arriba */
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--text-dark);
+        }
+
+        /* Mensaje Superior */
+        .top-message {
+            position: absolute;
+            top: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--sky-blue);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            animation: fadeIn 3s ease;
+        }
+
+        .container {
+            display: flex;
+            width: 95%;
+            max-width: 1200px;
+            align-items: center;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 50px; /* Espacio para el mensaje superior */
+        }
+
+        .card {
+            flex: 0.8;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(212, 160, 23, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            z-index: 10;
+            animation: fadeIn 2s ease;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.2rem;
+            color: var(--gold);
+            margin: 0 0 15px 0;
+            text-align: center;
+        }
+
+        .main-message {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .bible-verse {
+            background: rgba(255, 236, 179, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            border-left: 5px solid var(--gold);
+            font-style: italic;
+            margin: 20px 0;
+            color: #795548;
+        }
+
+        .personal-note {
+            font-weight: 500;
+            text-align: center;
+            display: block;
+            margin-top: 15px;
+        }
+
+        #timer {
+            margin-top: 25px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--gold);
+            background: #fff;
+            padding: 10px;
+            border-radius: 50px;
+            display: block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .visual-area {
+            flex: 1.2;
+            height: 600px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lily {
+            position: absolute;
+            animation: bloomIn 1.5s ease-out forwards;
+            opacity: 0;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.05));
+        }
+
+        @keyframes bloomIn {
+            0% { transform: scale(0) translateY(20px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .falling-petal {
+            position: absolute;
+            top: -50px;
+            pointer-events: none;
+            animation: fall linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <!-- Nuevo Mensaje Superior -->
+    <div class="top-message">Dios es Bueno</div>
+
+    <div class="container">
+        <div class="card">
+            <h1>Para Abi 🌻</h1>
+            
+            <div class="main-message">
+                Si pudiera elegir un lugar seguro, sería a tu lado.<br>
+                Cuanto más tiempo estoy contigo, más te amo.<br>
+                <strong>— I love you 💛 —</strong>
+            </div>
+
+            <div class="bible-verse">
+                "Como el lirio entre los espinos, así es mi amiga entre las doncellas." <br>
+                <small>— Cantares 2:2 (RVR1960)</small>
+            </div>
+
+            <div class="personal-note">
+                Eres una luz especial que Dios puso en mi camino. Tu fe y tu corazón son el regalo más hermoso. ¡Feliz 21 de marzo! 🌻
+            </div>
+
+            <div id="timer">Contando bendiciones...</div>
+        </div>
+
+        <div class="visual-area" id="garden">
+            <!-- Los lirios se generan por JS -->
+        </div>
+    </div>
+
+<script>
+    const garden = document.getElementById('garden');
+
+    function createLilySVG(color) {
+        return `
+            <svg width="60" height="60" viewBox="0 0 100 100">
+                <path d="M50 80 Q50 60 50 40" stroke="#81c784" stroke-width="2" fill="none" />
+                <path d="M50 40 Q70 10 90 40 Q70 50 50 40" fill="${color}" />
+                <path d="M50 40 Q30 10 10 40 Q30 50 50 40" fill="${color}" />
+                <path d="M50 40 Q50 0 80 10 Q60 30 50 40" fill="${color}" />
+                <path d="M50 40 Q50 0 20 10 Q40 30 50 40" fill="${color}" />
+                <circle cx="50" cy="38" r="4" fill="#ffd54f" />
+            </svg>
+        `;
+    }
+
+    function generateHeart() {
+        const total = 100;
+        const colors = ['#ffffff', '#fff9c4', '#fff176'];
+
+        for (let i = 0; i < total; i++) {
+            setTimeout(() => {
+                const t = (i / total) * Math.PI * 2;
+                const x = 16 * Math.pow(Math.sin(t), 3);
+                const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+
+                const flower = document.createElement('div');
+                flower.className = 'lily';
+                flower.innerHTML = createLilySVG(colors[i % colors.length]);
+                
+                const jitter = (Math.random() - 0.5) * 15;
+                flower.style.left = `calc(50% + ${x * 12 + jitter}px)`;
+                flower.style.top = `calc(50% + ${y * 12 + jitter}px)`;
+                flower.style.transform = `rotate(${(Math.random() - 0.5) * 30}deg)`;
+                
+                garden.appendChild(flower);
+            }, i * 20);
+        }
+    }
+
+    function createFallingFlowers() {
+        setInterval(() => {
+            const petal = document.createElement('div');
+            petal.className = 'falling-petal';
+            petal.innerHTML = Math.random() > 0.5 ? '🌻' : '✨';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            petal.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            document.body.appendChild(petal);
+            setTimeout(() => petal.remove(), 7000);
+        }, 600);
+    }
+
+    const startDate = new Date("2024-03-21T00:00:00");
+    function updateTimer() {
+        const now = new Date();
+        const diff = now - startDate;
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff / 3600000) % 24);
+        const m = Math.floor((diff / 60000) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+        document.getElementById('timer').innerHTML = 
+            `Nuestro camino juntos lleva:<br><b>${d}d ${h}h ${m}m ${s}s</b>`;
+    }
+
+    generateHeart();
+    createFallingFlowers();
+    setInterval(updateTimer, 1000);
+</script>
+
+</body>
+</html>
+
