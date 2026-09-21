@@ -1,247 +1,2982 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi luz, Abi 🌻</title>
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #fffdf2;
-            --soft-yellow: #ffecb3;
-            --gold: #d4a017;
-            --text-dark: #5d4037;
-            --sky-blue: #87CEEB; /* Color celeste para el mensaje superior */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            margin: 0;
-            height: 100vh;
-            background: linear-gradient(135deg, #fffdf2 0%, #fffae6 100%);
-            font-family: 'Quicksand', sans-serif;
-            display: flex;
-            flex-direction: column; /* Cambiado para permitir el texto arriba */
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            color: var(--text-dark);
-        }
+<title>Para Abigail 🌷</title>
 
-        /* Mensaje Superior */
-        .top-message {
-            position: absolute;
-            top: 30px;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            color: var(--sky-blue);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-            animation: fadeIn 3s ease;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        .container {
-            display: flex;
-            width: 95%;
-            max-width: 1200px;
-            align-items: center;
-            justify-content: space-around;
-            gap: 30px;
-            margin-top: 50px; /* Espacio para el mensaje superior */
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        .card {
-            flex: 0.8;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(15px);
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(212, 160, 23, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            z-index: 10;
-            animation: fadeIn 2s ease;
-        }
+<style>
 
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.2rem;
-            color: var(--gold);
-            margin: 0 0 15px 0;
-            text-align: center;
-        }
+/* =========================================================
+   VARIABLES
+========================================================= */
 
-        .main-message {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+:root {
+    --cream: #fffaf2;
+    --cream-2: #fff4df;
 
-        .bible-verse {
-            background: rgba(255, 236, 179, 0.3);
-            padding: 20px;
-            border-radius: 20px;
-            border-left: 5px solid var(--gold);
-            font-style: italic;
-            margin: 20px 0;
-            color: #795548;
-        }
+    --pink-soft: #fce4ec;
+    --pink: #f48fb1;
+    --pink-deep: #c95c7a;
 
-        .personal-note {
-            font-weight: 500;
-            text-align: center;
-            display: block;
-            margin-top: 15px;
-        }
+    --yellow: #f8c843;
+    --yellow-light: #ffe89a;
+    --yellow-deep: #e3a817;
 
-        #timer {
-            margin-top: 25px;
-            text-align: center;
-            font-weight: 600;
-            color: var(--gold);
-            background: #fff;
-            padding: 10px;
-            border-radius: 50px;
-            display: block;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+    --green: #6d9b62;
+    --green-dark: #3f6642;
 
-        .visual-area {
-            flex: 1.2;
-            height: 600px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    --brown: #694c45;
+    --brown-dark: #3e2926;
 
-        .lily {
-            position: absolute;
-            animation: bloomIn 1.5s ease-out forwards;
-            opacity: 0;
-            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.05));
-        }
+    --blue: #9edcf4;
+    --sky: #bfe9fa;
 
-        @keyframes bloomIn {
-            0% { transform: scale(0) translateY(20px); opacity: 0; }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
-        }
+    --white: #ffffff;
 
-        .falling-petal {
-            position: absolute;
-            top: -50px;
-            pointer-events: none;
-            animation: fall linear forwards;
-            z-index: 1;
-        }
+    --shadow:
+        0 20px 50px rgba(89, 54, 40, 0.15);
 
-        @keyframes fall {
-            to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-        }
+    --glass:
+        rgba(255, 255, 255, 0.72);
+}
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Quicksand", sans-serif;
+
+    color: var(--brown);
+
+    background:
+        linear-gradient(
+            180deg,
+            #bfe8f8 0%,
+            #e7f6fa 35%,
+            #fff4dc 70%,
+            #fce8d2 100%
+        );
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff5e8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e9b85c;
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   PANTALLA DE APERTURA
+========================================================= */
+
+#opening {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(255,255,255,.95),
+            rgba(255,239,190,.9) 40%,
+            rgba(247,201,94,.95) 100%
+        );
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+#opening.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-content {
+    position: relative;
+
+    width: min(90%, 500px);
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,.85);
+
+    box-shadow:
+        0 30px 80px rgba(117,76,23,.2);
+
+    animation: openingFloat 4s ease-in-out infinite;
+}
+
+@keyframes openingFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.opening-small {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.4rem;
+    color: var(--green-dark);
+    margin-bottom: 10px;
+}
+
+.opening-title {
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(3.2rem, 12vw, 5.5rem);
+    line-height: 1;
+
+    color: var(--pink-deep);
+
+    margin-bottom: 20px;
+}
+
+.opening-subtitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.25rem;
+    line-height: 1.6;
+
+    color: var(--brown);
+
+    margin-bottom: 35px;
+}
+
+.opening-date {
+    font-size: .85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: var(--yellow-deep);
+
+    margin-bottom: 25px;
+}
+
+.open-button {
+
+    border: none;
+
+    padding: 15px 35px;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3c348,
+            #e8a927
+        );
+
+    box-shadow:
+        0 10px 25px rgba(211,160,40,.3);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.open-button:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 15px 30px rgba(211,160,40,.4);
+}
+
+
+/* =========================================================
+   PÉTALOS GENERALES
+========================================================= */
+
+#petal-container {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 50;
+}
+
+.falling-petal {
+    position: absolute;
+
+    width: 12px;
+    height: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe57b,
+            #f4bd31
+        );
+
+    border-radius:
+        70% 30% 70% 30%;
+
+    opacity: .85;
+
+    animation:
+        falling linear forwards;
+}
+
+@keyframes falling {
+
+    0% {
+        transform:
+            translate3d(0,-30px,0)
+            rotate(0deg);
+    }
+
+    25% {
+        transform:
+            translate3d(40px,25vh,0)
+            rotate(120deg);
+    }
+
+    50% {
+        transform:
+            translate3d(-35px,50vh,0)
+            rotate(220deg);
+    }
+
+    75% {
+        transform:
+            translate3d(30px,75vh,0)
+            rotate(300deg);
+    }
+
+    100% {
+        transform:
+            translate3d(-20px,110vh,0)
+            rotate(420deg);
+    }
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+
+/* CIELO */
+
+.sky {
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -10;
+
+    background:
+        linear-gradient(
+            180deg,
+            #91d5f2 0%,
+            #bfe8f6 38%,
+            #fff1c9 72%,
+            #f8dba8 100%
+        );
+}
+
+
+/* SOL */
+
+.sun {
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    top: 9%;
+    right: 12%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fffbd4 0%,
+            #ffe995 35%,
+            rgba(255,218,99,.45) 60%,
+            transparent 72%
+        );
+
+    filter: blur(1px);
+
+    animation:
+        sunPulse 6s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+
+/* NUBES */
+
+.cloud {
+
+    position: absolute;
+
+    width: 150px;
+    height: 50px;
+
+    background: rgba(255,255,255,.7);
+
+    border-radius: 50px;
+
+    filter: blur(1px);
+
+    opacity: .65;
+
+    animation: cloudMove linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+
+    content: "";
+
+    position: absolute;
+
+    background: inherit;
+
+    border-radius: 50%;
+}
+
+.cloud::before {
+
+    width: 70px;
+    height: 70px;
+
+    left: 25px;
+    bottom: 5px;
+}
+
+.cloud::after {
+
+    width: 90px;
+    height: 90px;
+
+    right: 15px;
+    bottom: 0;
+}
+
+.cloud.one {
+
+    top: 18%;
+    left: -180px;
+
+    animation-duration: 50s;
+}
+
+.cloud.two {
+
+    top: 31%;
+    left: -250px;
+
+    transform: scale(.7);
+
+    animation-duration: 70s;
+    animation-delay: 12s;
+}
+
+@keyframes cloudMove {
+
+    from {
+        transform: translateX(-250px);
+    }
+
+    to {
+        transform: translateX(calc(100vw + 300px));
+    }
+}
+
+
+/* =========================================================
+   MONTAÑAS
+========================================================= */
+
+.mountains {
+
+    position: absolute;
+
+    bottom: 21%;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 280px;
+
+    z-index: -5;
+}
+
+.mountain {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 220px solid transparent;
+    border-right: 220px solid transparent;
+    border-bottom: 300px solid rgba(129,155,150,.45);
+}
+
+.mountain:nth-child(1) {
+    left: -80px;
+}
+
+.mountain:nth-child(2) {
+    left: 18%;
+    transform: scale(1.2);
+    border-bottom-color: rgba(112,145,141,.4);
+}
+
+.mountain:nth-child(3) {
+    right: 10%;
+    transform: scale(.9);
+    border-bottom-color: rgba(137,158,151,.42);
+}
+
+.mountain:nth-child(4) {
+    right: -130px;
+    transform: scale(1.3);
+    border-bottom-color: rgba(106,139,137,.35);
+}
+
+
+/* =========================================================
+   VALLE
+========================================================= */
+
+.valley {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 32%;
+
+    z-index: -3;
+
+    background:
+        linear-gradient(
+            180deg,
+            #a5c884,
+            #6e9c62
+        );
+
+    clip-path:
+        polygon(
+            0 35%,
+            15% 20%,
+            30% 40%,
+            45% 18%,
+            60% 38%,
+            75% 20%,
+            90% 38%,
+            100% 20%,
+            100% 100%,
+            0 100%
+        );
+}
+
+
+/* =========================================================
+   ÁRBOL PRINCIPAL
+========================================================= */
+
+.great-tree {
+
+    position: absolute;
+
+    left: -50px;
+    bottom: 13%;
+
+    width: 470px;
+    height: 600px;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* tronco */
+
+.trunk {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 145px;
+
+    width: 95px;
+    height: 420px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #553b2d,
+            #81593e,
+            #573a2c
+        );
+
+    border-radius:
+        48% 52% 10% 10%;
+
+    transform:
+        rotate(5deg);
+
+    box-shadow:
+        inset 15px 0 20px rgba(0,0,0,.15);
+}
+
+
+/* ramas */
+
+.branch {
+
+    position: absolute;
+
+    height: 28px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #503628,
+            #79553b
+        );
+
+    border-radius: 50px;
+
+    transform-origin: left center;
+}
+
+.branch.one {
+
+    width: 240px;
+
+    left: 170px;
+    top: 210px;
+
+    transform: rotate(-28deg);
+}
+
+.branch.two {
+
+    width: 260px;
+
+    left: 165px;
+    top: 150px;
+
+    transform: rotate(22deg);
+}
+
+.branch.three {
+
+    width: 190px;
+
+    left: 145px;
+    top: 270px;
+
+    transform: rotate(34deg);
+}
+
+.branch.four {
+
+    width: 190px;
+
+    left: 170px;
+    top: 115px;
+
+    transform: rotate(-45deg);
+}
+
+
+/* copa */
+
+.tree-crown {
+
+    position: absolute;
+
+    left: 30px;
+    top: 0;
+
+    width: 410px;
+    height: 280px;
+}
+
+
+/* flores del árbol */
+
+.tree-flower {
+
+    position: absolute;
+
+    width: 42px;
+    height: 42px;
+
+    animation:
+        flowerSway 4s ease-in-out infinite;
+}
+
+.tree-flower::before,
+.tree-flower::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 9px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fff6a5 0 12%,
+            #f9ca3f 14% 65%,
+            #e9a91d 68%
+        );
+
+    border-radius:
+        50% 10% 50% 10%;
+
+    box-shadow:
+        0 0 12px rgba(255,208,57,.5);
+}
+
+.tree-flower::after {
+    transform: rotate(72deg);
+}
+
+.tree-flower:nth-child(1) { left: 40px; top: 60px; }
+.tree-flower:nth-child(2) { left: 100px; top: 20px; }
+.tree-flower:nth-child(3) { left: 165px; top: 45px; }
+.tree-flower:nth-child(4) { left: 220px; top: 10px; }
+.tree-flower:nth-child(5) { left: 280px; top: 55px; }
+.tree-flower:nth-child(6) { left: 340px; top: 35px; }
+.tree-flower:nth-child(7) { left: 70px; top: 120px; }
+.tree-flower:nth-child(8) { left: 135px; top: 105px; }
+.tree-flower:nth-child(9) { left: 200px; top: 125px; }
+.tree-flower:nth-child(10) { left: 270px; top: 105px; }
+.tree-flower:nth-child(11) { left: 330px; top: 130px; }
+.tree-flower:nth-child(12) { left: 30px; top: 175px; }
+.tree-flower:nth-child(13) { left: 105px; top: 180px; }
+.tree-flower:nth-child(14) { left: 180px; top: 190px; }
+.tree-flower:nth-child(15) { left: 250px; top: 175px; }
+.tree-flower:nth-child(16) { left: 320px; top: 185px; }
+
+@keyframes flowerSway {
+
+    0%,100% {
+        transform: rotate(-3deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(4deg) translateY(-4px);
+    }
+}
+
+
+/* =========================================================
+   CONTENIDO HERO
+========================================================= */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: min(92%, 650px);
+
+    margin-left: 180px;
+
+    text-align: center;
+
+    padding: 55px 45px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    backdrop-filter:
+        blur(16px);
+
+    border:
+        1px solid rgba(255,255,255,.9);
+
+    border-radius:
+        35px;
+
+    box-shadow:
+        0 30px 80px rgba(73,58,43,.15);
+
+    animation:
+        heroAppear 1.5s ease forwards;
+}
+
+@keyframes heroAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-top {
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 1.5rem;
+
+    color:
+        var(--green-dark);
+
+    margin-bottom: 8px;
+}
+
+.hero-title {
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(4rem, 12vw, 7rem);
+
+    line-height: .95;
+
+    color:
+        var(--pink-deep);
+
+    text-shadow:
+        0 5px 20px rgba(180,77,107,.15);
+
+    margin-bottom: 20px;
+}
+
+.hero-date {
+
+    display: inline-block;
+
+    padding: 9px 18px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(248,200,67,.18);
+
+    color:
+        var(--yellow-deep);
+
+    font-size: .82rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+.hero-message {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.45rem;
+
+    line-height: 1.6;
+
+    color:
+        var(--brown-dark);
+}
+
+.hero-message strong {
+
+    color:
+        var(--pink-deep);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   INDICADOR SCROLL
+========================================================= */
+
+.scroll-hint {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 20;
+
+    text-align: center;
+
+    color: rgba(70,55,45,.65);
+
+    font-size: .75rem;
+
+    letter-spacing: 2px;
+}
+
+.scroll-arrow {
+
+    margin-top: 8px;
+
+    font-size: 1.3rem;
+
+    animation:
+        arrowDown 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowDown {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+.section {
+
+    position: relative;
+
+    padding:
+        110px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff4df,
+            #fffaf4
+        );
+}
+
+.section:nth-of-type(even) {
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffaf4,
+            #fff0f5
+        );
+}
+
+.section-inner {
+
+    width: min(100%, 950px);
+
+    margin: auto;
+}
+
+
+/* encabezado */
+
+.section-label {
+
+    text-align: center;
+
+    font-size: .78rem;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color:
+        var(--yellow-deep);
+
+    margin-bottom: 10px;
+}
+
+.section-title {
+
+    text-align: center;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(2.8rem, 8vw, 4.5rem);
+
+    color:
+        var(--pink-deep);
+
+    margin-bottom: 45px;
+}
+
+
+/* =========================================================
+   CARTA
+========================================================= */
+
+.letter {
+
+    position: relative;
+
+    padding:
+        55px 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.95),
+            rgba(255,249,239,.96)
+        );
+
+    border-radius:
+        30px;
+
+    box-shadow:
+        var(--shadow);
+
+    border:
+        1px solid #f6dfc0;
+}
+
+.letter::before {
+
+    content: "✦";
+
+    position: absolute;
+
+    top: 22px;
+    left: 28px;
+
+    color:
+        var(--yellow);
+
+    font-size: 1.4rem;
+}
+
+.letter::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    bottom: 22px;
+    right: 28px;
+
+    color:
+        var(--pink);
+
+    font-size: 1.4rem;
+}
+
+.letter p {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.35rem;
+
+    line-height: 1.75;
+
+    text-align: center;
+
+    color:
+        var(--brown);
+}
+
+.letter .highlight {
+
+    color:
+        var(--pink-deep);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   JARDÍN DE LIRIOS
+========================================================= */
+
+.lily-garden {
+
+    position: relative;
+
+    min-height: 500px;
+
+    overflow: hidden;
+
+    border-radius:
+        35px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #b9e7f4 0%,
+            #eaf8ef 55%,
+            #91bd72 56%,
+            #5e914e 100%
+        );
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+/* suelo */
+
+.lawn {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 46%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #9ccf76,
+            #639d50
+        );
+
+    border-radius:
+        50% 50% 0 0;
+}
+
+
+/* lirios */
+
+.lily {
+    position: absolute;
+
+    width: 90px;
+    height: 130px;
+
+    transform-origin: bottom center;
+
+    animation:
+        lilyMove 5s ease-in-out infinite;
+}
+
+@keyframes lilyMove {
+
+    0%,100% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+.lily-stem {
+
+    position: absolute;
+
+    left: 43px;
+    bottom: 0;
+
+    width: 6px;
+    height: 90px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f873f,
+            #79aa5e
+        );
+
+    border-radius: 20px;
+
+    transform:
+        rotate(2deg);
+}
+
+.lily-leaf {
+
+    position: absolute;
+
+    width: 50px;
+    height: 18px;
+
+    background:
+        #5f9d4b;
+
+    border-radius:
+        100% 0 100% 0;
+
+    bottom: 30px;
+    left: 15px;
+
+    transform:
+        rotate(-25deg);
+}
+
+.lily-head {
+
+    position: absolute;
+
+    top: 5px;
+    left: 12px;
+
+    width: 70px;
+    height: 70px;
+}
+
+.lily-petal {
+
+    position: absolute;
+
+    width: 36px;
+    height: 58px;
+
+    left: 17px;
+    top: 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff8fc,
+            #f5a5c1
+        );
+
+    border-radius:
+        70% 30% 70% 30%;
+
+    transform-origin:
+        bottom center;
+
+    box-shadow:
+        inset 3px 0 5px rgba(255,255,255,.7);
+}
+
+.lily-petal:nth-child(1) {
+    transform: rotate(0deg);
+}
+
+.lily-petal:nth-child(2) {
+    transform: rotate(60deg);
+}
+
+.lily-petal:nth-child(3) {
+    transform: rotate(120deg);
+}
+
+.lily-petal:nth-child(4) {
+    transform: rotate(180deg);
+}
+
+.lily-petal:nth-child(5) {
+    transform: rotate(240deg);
+}
+
+.lily-petal:nth-child(6) {
+    transform: rotate(300deg);
+}
+
+.lily-center {
+
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    left: 29px;
+    top: 37px;
+
+    border-radius: 50%;
+
+    background:
+        #f8c83e;
+
+    box-shadow:
+        0 0 0 4px rgba(255,235,124,.35);
+}
+
+
+/* LIRIO ESPECIAL */
+
+.special-lily {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 45px;
+
+    transform:
+        translateX(-50%)
+        scale(1.35);
+
+    z-index: 5;
+
+    filter:
+        drop-shadow(
+            0 15px 15px rgba(46,82,35,.2)
+        );
+}
+
+.special-lily .lily-petal {
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffdfd,
+            #f18bab
+        );
+}
+
+.special-lily-label {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 10;
+
+    padding:
+        9px 20px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.85);
+
+    backdrop-filter:
+        blur(8px);
+
+    color:
+        var(--pink-deep);
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 1.35rem;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 8px 20px rgba(70,50,40,.12);
+}
+
+
+/* lirios alrededor */
+
+.lily-1 { left: 7%; bottom: 30px; transform: scale(.8); }
+.lily-2 { left: 18%; bottom: 40px; transform: scale(.65); }
+.lily-3 { left: 29%; bottom: 20px; transform: scale(.9); }
+.lily-4 { right: 8%; bottom: 30px; transform: scale(.8); }
+.lily-5 { right: 20%; bottom: 50px; transform: scale(.65); }
+.lily-6 { right: 30%; bottom: 20px; transform: scale(.9); }
+
+
+/* =========================================================
+   CANTARES
+========================================================= */
+
+.verse-section {
+
+    position: relative;
+
+    text-align: center;
+
+    padding:
+        70px 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf8,
+            #fff3f7
+        );
+
+    border-radius:
+        35px;
+
+    box-shadow:
+        var(--shadow);
+
+    border:
+        1px solid #f2dfc6;
+
+    overflow: hidden;
+}
+
+.verse-section::before {
+
+    content: "🌷";
+
+    position: absolute;
+
+    left: 25px;
+    top: 20px;
+
+    font-size: 3rem;
+
+    opacity: .35;
+}
+
+.verse-section::after {
+
+    content: "🌷";
+
+    position: absolute;
+
+    right: 25px;
+    bottom: 20px;
+
+    font-size: 3rem;
+
+    opacity: .35;
+}
+
+.verse-label {
+
+    color:
+        var(--yellow-deep);
+
+    letter-spacing: 3px;
+
+    font-size: .75rem;
+
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+}
+
+.verse {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-style: italic;
+
+    font-size:
+        clamp(1.8rem, 5vw, 2.8rem);
+
+    line-height: 1.4;
+
+    color:
+        var(--brown-dark);
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.verse-reference {
+
+    margin-top: 25px;
+
+    font-weight: 700;
+
+    color:
+        var(--pink-deep);
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   FLORES AMARILLAS
+========================================================= */
+
+.yellow-flower-section {
+
+    text-align: center;
+
+    padding:
+        100px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff9e8,
+            #fff1c7
+        );
+}
+
+.yellow-flower-title {
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(3rem, 9vw, 5rem);
+
+    color:
+        #d89b13;
+
+    margin-bottom: 10px;
+}
+
+.yellow-flower-date {
+
+    font-size: .85rem;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color:
+        #a97812;
+
+    margin-bottom: 30px;
+}
+
+.yellow-flower-text {
+
+    width: min(90%, 700px);
+
+    margin: auto;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.4rem;
+
+    line-height: 1.7;
+
+    color:
+        var(--brown);
+}
+
+
+/* =========================================================
+   TARJETAS DE FE
+========================================================= */
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.info-card {
+
+    padding:
+        40px 30px;
+
+    border-radius:
+        28px;
+
+    background:
+        rgba(255,255,255,.78);
+
+    border:
+        1px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        var(--shadow);
+
+    text-align: center;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.info-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 25px 50px rgba(100,70,50,.16);
+}
+
+.card-icon {
+
+    font-size:
+        2.2rem;
+
+    margin-bottom: 18px;
+}
+
+.card-title {
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        2rem;
+
+    color:
+        var(--pink-deep);
+
+    margin-bottom: 15px;
+}
+
+.card-text {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        1.25rem;
+
+    line-height:
+        1.65;
+}
+
+
+/* =========================================================
+   MENSAJE FINAL
+========================================================= */
+
+.final-section {
+
+    position: relative;
+
+    min-height: 80vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        100px 20px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff2f4,
+            #f9e3ca
+        );
+}
+
+.final-box {
+
+    position: relative;
+
+    z-index: 10;
+
+    width:
+        min(92%, 720px);
+
+    padding:
+        65px 40px;
+
+    text-align: center;
+
+    border-radius:
+        40px;
+
+    background:
+        rgba(255,255,255,.75);
+
+    backdrop-filter:
+        blur(16px);
+
+    box-shadow:
+        0 30px 80px rgba(90,65,45,.15);
+
+    border:
+        1px solid rgba(255,255,255,.9);
+}
+
+.final-small {
+
+    font-size:
+        .85rem;
+
+    letter-spacing:
+        4px;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--yellow-deep);
+
+    margin-bottom:
+        15px;
+}
+
+.final-title {
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(3rem, 9vw, 5rem);
+
+    color:
+        var(--pink-deep);
+
+    margin-bottom:
+        25px;
+}
+
+.final-text {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        1.45rem;
+
+    line-height:
+        1.7;
+
+    color:
+        var(--brown);
+}
+
+.final-highlight {
+
+    margin-top:
+        35px;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        2.3rem;
+
+    color:
+        var(--pink-deep);
+}
+
+
+/* =========================================================
+   CORAZONES DECORATIVOS
+========================================================= */
+
+.heart {
+
+    position: absolute;
+
+    color:
+        rgba(201,92,122,.3);
+
+    animation:
+        heartFloat 5s ease-in-out infinite;
+}
+
+@keyframes heartFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotate(5deg);
+    }
+}
+
+.heart.one {
+    top: 20%;
+    left: 8%;
+    font-size: 2rem;
+}
+
+.heart.two {
+    top: 55%;
+    right: 8%;
+    font-size: 3rem;
+}
+
+.heart.three {
+    bottom: 10%;
+    left: 15%;
+    font-size: 1.5rem;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        30px 20px;
+
+    text-align: center;
+
+    background:
+        #5b453e;
+
+    color:
+        #fff6e9;
+}
+
+footer p {
+
+    font-size:
+        .85rem;
+
+    opacity:
+        .85;
+}
+
+footer .footer-name {
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        1.6rem;
+
+    color:
+        #ffe28a;
+
+    margin-bottom:
+        6px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .great-tree {
+
+        left: -180px;
+
+        transform:
+            scale(.85);
+    }
+
+    .hero-content {
+
+        margin-left: 90px;
+
+        width:
+            min(90%, 580px);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .hero {
+
+        min-height:
+            100svh;
+
+        align-items:
+            center;
+    }
+
+    .great-tree {
+
+        left:
+            -215px;
+
+        bottom:
+            5%;
+
+        transform:
+            scale(.62);
+
+        opacity:
+            .8;
+    }
+
+    .hero-content {
+
+        margin:
+            80px 15px 0 15px;
+
+        padding:
+            45px 25px;
+
+        background:
+            rgba(255,255,255,.78);
+    }
+
+    .hero-title {
+
+        font-size:
+            4.2rem;
+    }
+
+    .hero-message {
+
+        font-size:
+            1.2rem;
+    }
+
+    .mountains {
+
+        bottom:
+            18%;
+    }
+
+    .cards {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .letter {
+
+        padding:
+            40px 25px;
+    }
+
+    .letter p {
+
+        font-size:
+            1.2rem;
+    }
+
+    .lily-garden {
+
+        min-height:
+            520px;
+    }
+
+    .special-lily {
+
+        transform:
+            translateX(-50%)
+            scale(1.05);
+    }
+
+    .special-lily-label {
+
+        font-size:
+            1.1rem;
+    }
+
+    .opening-content {
+
+        padding:
+            45px 22px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .hero-title {
+
+        font-size:
+            3.7rem;
+    }
+
+    .hero-content {
+
+        padding:
+            40px 20px;
+    }
+
+    .hero-date {
+
+        font-size:
+            .7rem;
+
+        letter-spacing:
+            1.5px;
+    }
+
+    .tree-crown {
+
+        transform:
+            scale(.85);
+
+        transform-origin:
+            left top;
+    }
+
+    .verse-section {
+
+        padding:
+            55px 22px;
+    }
+
+    .final-box {
+
+        padding:
+            50px 25px;
+    }
+}
+
+</style>
 </head>
+
+
 <body>
 
-    <!-- Nuevo Mensaje Superior -->
-    <div class="top-message">Dios es Bueno</div>
 
-    <div class="container">
-        <div class="card">
-            <h1>Para Abi 🌻</h1>
-            
-            <div class="main-message">
-                Si pudiera elegir un lugar seguro, sería a tu lado.<br>
-                Cuanto más tiempo estoy contigo, más te amo.<br>
-                <strong>— I love you 💛 —</strong>
-            </div>
+<!-- =======================================================
+     PANTALLA DE APERTURA
+======================================================= -->
 
-            <div class="bible-verse">
-                "Como el lirio entre los espinos, así es mi amiga entre las doncellas." <br>
-                <small>— Cantares 2:2 (RVR1960)</small>
-            </div>
+<div id="opening">
 
-            <div class="personal-note">
-                Eres una luz especial que Dios puso en mi camino. Tu fe y tu corazón son el regalo más hermoso. ¡Feliz 21 de marzo! 🌻
-            </div>
+    <div class="opening-content">
 
-            <div id="timer">Contando bendiciones...</div>
+        <div class="opening-small">
+            Un pequeño jardín para ti
         </div>
 
-        <div class="visual-area" id="garden">
-            <!-- Los lirios se generan por JS -->
+        <div class="opening-title">
+            Abigail 🌷
         </div>
+
+        <div class="opening-date">
+            21 de septiembre
+        </div>
+
+        <div class="opening-subtitle">
+            Hay detalles que no necesitan muchas palabras...
+            solamente un pequeño lugar donde puedan florecer.
+        </div>
+
+        <button class="open-button" onclick="openGarden()">
+            Abrir este jardín 🌼
+        </button>
+
     </div>
 
+</div>
+
+
+<!-- =======================================================
+     PÉTALOS
+======================================================= -->
+
+<div id="petal-container"></div>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero">
+
+    <div class="sky"></div>
+
+    <div class="sun"></div>
+
+    <div class="cloud one"></div>
+    <div class="cloud two"></div>
+
+
+    <!-- MONTAÑAS -->
+
+    <div class="mountains">
+
+        <div class="mountain"></div>
+        <div class="mountain"></div>
+        <div class="mountain"></div>
+        <div class="mountain"></div>
+
+    </div>
+
+
+    <div class="valley"></div>
+
+
+    <!-- ===================================================
+         ÁRBOL
+    =================================================== -->
+
+    <div class="great-tree">
+
+        <div class="trunk"></div>
+
+        <div class="branch one"></div>
+        <div class="branch two"></div>
+        <div class="branch three"></div>
+        <div class="branch four"></div>
+
+        <div class="tree-crown">
+
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+            <div class="tree-flower"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===================================================
+         MENSAJE PRINCIPAL
+    =================================================== -->
+
+    <div class="hero-content">
+
+        <div class="hero-top">
+            Dios es bueno
+        </div>
+
+        <h1 class="hero-title">
+            Para mi Abi
+        </h1>
+
+        <div class="hero-date">
+            🌼 21 DE SEPTIEMBRE · FLORES AMARILLAS 🌼
+        </div>
+
+        <p class="hero-message">
+
+            Entre tantas flores, hay algunas que simplemente
+            llaman la atención de una manera diferente.
+
+            <br><br>
+
+            Y si tuviera que describirte con una flor,
+            <strong>pensaría en un lirio.</strong>
+
+            <br><br>
+
+            No porque sea la única flor del jardín,
+            sino porque tiene una belleza que hace que uno
+            quiera detenerse a contemplarla.
+
+        </p>
+
+    </div>
+
+
+    <div class="scroll-hint">
+
+        DESLIZA
+
+        <div class="scroll-arrow">
+            ↓
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     CARTA
+======================================================= -->
+
+<section class="section">
+
+    <div class="section-inner">
+
+        <div class="section-label">
+            Un pensamiento
+        </div>
+
+        <h2 class="section-title">
+            Algo que quería decirte
+        </h2>
+
+
+        <div class="letter">
+
+            <p>
+
+                A veces pienso que la vida se parece un poco
+                a caminar por un jardín.
+
+                <br><br>
+
+                Hay muchas flores, cada una con su forma,
+                su color y su propia belleza.
+
+                <br><br>
+
+                Pero entre todas ellas siempre existe alguna
+                que hace que uno se detenga un momento.
+
+                <br><br>
+
+                <span class="highlight">
+                    Así es como te veo a ti.
+                </span>
+
+                <br><br>
+
+                Como ese lirio que resalta entre las demás flores,
+                no porque necesite compararse con ninguna,
+                sino porque tiene algo propio, algo especial,
+                algo que simplemente la hace diferente.
+
+                <br><br>
+
+                Y quizá por eso me gusta tanto la imagen
+                del lirio cuando pienso en ti.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     CANTARES 2:2
+======================================================= -->
+
+<section class="section">
+
+    <div class="section-inner">
+
+        <div class="verse-section">
+
+            <div class="verse-label">
+                La Palabra de Dios
+            </div>
+
+            <div class="verse">
+
+                “Como el lirio entre los espinos,
+                así es mi amiga entre las doncellas.”
+
+            </div>
+
+            <div class="verse-reference">
+                Cantares 2:2 · RVR1960
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     JARDÍN DE LIRIOS
+======================================================= -->
+
+<section class="section">
+
+    <div class="section-inner">
+
+        <div class="section-label">
+            Un jardín para ti
+        </div>
+
+        <h2 class="section-title">
+            Entre tantas flores...
+        </h2>
+
+
+        <div class="lily-garden">
+
+            <div class="lawn"></div>
+
+
+            <!-- LIRIOS DEL JARDÍN -->
+
+            <div class="lily lily-1">
+
+                <div class="lily-head">
+
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+
+                    <div class="lily-center"></div>
+
+                </div>
+
+                <div class="lily-leaf"></div>
+                <div class="lily-stem"></div>
+
+            </div>
+
+
+            <div class="lily lily-2">
+
+                <div class="lily-head">
+
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+
+                    <div class="lily-center"></div>
+
+                </div>
+
+                <div class="lily-leaf"></div>
+                <div class="lily-stem"></div>
+
+            </div>
+
+
+            <div class="lily lily-3">
+
+                <div class="lily-head">
+
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+
+                    <div class="lily-center"></div>
+
+                </div>
+
+                <div class="lily-leaf"></div>
+                <div class="lily-stem"></div>
+
+            </div>
+
+
+            <div class="lily lily-4">
+
+                <div class="lily-head">
+
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+
+                    <div class="lily-center"></div>
+
+                </div>
+
+                <div class="lily-leaf"></div>
+                <div class="lily-stem"></div>
+
+            </div>
+
+
+            <div class="lily lily-5">
+
+                <div class="lily-head">
+
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+
+                    <div class="lily-center"></div>
+
+                </div>
+
+                <div class="lily-leaf"></div>
+                <div class="lily-stem"></div>
+
+            </div>
+
+
+            <div class="lily lily-6">
+
+                <div class="lily-head">
+
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+                    <div class="lily-petal"></div>
+
+                    <div class="lily-center"></div>
+
+                </div>
+
+                <div class="lily-leaf"></div>
+                <div class="lily-stem"></div>
+
+            </div>
+
+
+            <!-- LIRIO ESPECIAL -->
+
+            <div class="special-lily">
+
+                <div class="lily">
+
+                    <div class="lily-head">
+
+                        <div class="lily-petal"></div>
+                        <div class="lily-petal"></div>
+                        <div class="lily-petal"></div>
+                        <div class="lily-petal"></div>
+                        <div class="lily-petal"></div>
+                        <div class="lily-petal"></div>
+
+                        <div class="lily-center"></div>
+
+                    </div>
+
+                    <div class="lily-leaf"></div>
+                    <div class="lily-stem"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="special-lily-label">
+                Mi lirio 🌷
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FLORES AMARILLAS
+======================================================= -->
+
+<section class="yellow-flower-section">
+
+    <div class="section-inner">
+
+        <div class="yellow-flower-title">
+            Flores amarillas 🌼
+        </div>
+
+        <div class="yellow-flower-date">
+            21 de septiembre
+        </div>
+
+        <p class="yellow-flower-text">
+
+            Hoy el jardín se llena de amarillo.
+
+            <br><br>
+
+            Y aunque las flores amarillas tienen su propia
+            alegría y llenan todo de luz, quería dejarte
+            algo diferente:
+
+            <br><br>
+
+            <strong>
+                un jardín donde también haya lirios,
+                porque sé cuánto te gustan.
+            </strong>
+
+            <br><br>
+
+            Que cada pétalo amarillo de este día sea
+            un pequeño recordatorio de que hay personas
+            que llegan a nuestra vida y dejan algo bonito
+            simplemente siendo ellas mismas.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FE
+======================================================= -->
+
+<section class="section">
+
+    <div class="section-inner">
+
+        <div class="section-label">
+            Lo más importante
+        </div>
+
+        <h2 class="section-title">
+            Dios primero
+        </h2>
+
+
+        <div class="cards">
+
+
+            <div class="info-card">
+
+                <div class="card-icon">
+                    📖
+                </div>
+
+                <div class="card-title">
+                    Tu fe
+                </div>
+
+                <div class="card-text">
+
+                    Admiro mucho ese deseo que tienes
+                    de seguir esforzándote en las cosas
+                    del Señor.
+
+                    <br><br>
+
+                    Sigue buscando a Dios, aun en los días
+                    difíciles, y no dejes que nada te aparte
+                    de Él.
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="card-icon">
+                    🌱
+                </div>
+
+                <div class="card-title">
+                    Sigue creciendo
+                </div>
+
+                <div class="card-text">
+
+                    Que el Señor siga formando tu vida,
+                    fortaleciendo tu espíritu y guiando
+                    cada uno de tus pasos.
+
+                    <br><br>
+
+                    Lo más hermoso siempre será caminar
+                    conforme a Su voluntad.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     MENSAJE FINAL
+======================================================= -->
+
+<section class="final-section">
+
+
+    <div class="heart one">
+        ♡
+    </div>
+
+    <div class="heart two">
+        ♡
+    </div>
+
+    <div class="heart three">
+        ♡
+    </div>
+
+
+    <div class="final-box">
+
+        <div class="final-small">
+            Para terminar este pequeño jardín
+        </div>
+
+        <h2 class="final-title">
+            Para Abigail 🌷
+        </h2>
+
+        <p class="final-text">
+
+            No sé qué tendrá preparado Dios para cada
+            uno de nuestros caminos, y precisamente por
+            eso quiero que todo sea conforme a Su voluntad.
+
+            <br><br>
+
+            Pero sí sé que hay personas que uno aprende
+            a valorar de una manera muy especial.
+
+            <br><br>
+
+            Y tú eres una de ellas.
+
+            <br><br>
+
+            Que nunca olvides cuánto vales delante de Dios,
+            que sigas cuidando esa fe que tienes y que
+            continúes floreciendo allí donde Él te ha puesto.
+
+        </p>
+
+
+        <div class="final-highlight">
+
+            Te quiero mucho 🌷
+
+        </div>
+
+        <p style="
+            margin-top:20px;
+            font-size:.9rem;
+            color:#80645b;
+        ">
+
+            Dios te bendiga, te guarde y siga guiando
+            siempre tus pasos.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+    <div class="footer-name">
+        Para Abi 🌼
+    </div>
+
+    <p>
+        Hecho con cariño, flores y un poquito de código.
+    </p>
+
+    <p style="margin-top:8px;">
+        21 de septiembre
+    </p>
+
+</footer>
+
+
+
 <script>
-    const garden = document.getElementById('garden');
 
-    function createLilySVG(color) {
-        return `
-            <svg width="60" height="60" viewBox="0 0 100 100">
-                <path d="M50 80 Q50 60 50 40" stroke="#81c784" stroke-width="2" fill="none" />
-                <path d="M50 40 Q70 10 90 40 Q70 50 50 40" fill="${color}" />
-                <path d="M50 40 Q30 10 10 40 Q30 50 50 40" fill="${color}" />
-                <path d="M50 40 Q50 0 80 10 Q60 30 50 40" fill="${color}" />
-                <path d="M50 40 Q50 0 20 10 Q40 30 50 40" fill="${color}" />
-                <circle cx="50" cy="38" r="4" fill="#ffd54f" />
-            </svg>
-        `;
+/* =========================================================
+   ABRIR JARDÍN
+========================================================= */
+
+function openGarden() {
+
+    const opening =
+        document.getElementById("opening");
+
+    opening.classList.add("hidden");
+
+    createPetals(35);
+
+}
+
+
+/* =========================================================
+   PÉTALOS
+========================================================= */
+
+const petalContainer =
+    document.getElementById("petal-container");
+
+
+function createPetal() {
+
+    const petal =
+        document.createElement("div");
+
+    petal.className =
+        "falling-petal";
+
+    const size =
+        Math.random() * 10 + 7;
+
+    petal.style.width =
+        size + "px";
+
+    petal.style.height =
+        size * 1.4 + "px";
+
+    petal.style.left =
+        Math.random() * 100 + "%";
+
+    const duration =
+        Math.random() * 5 + 6;
+
+    petal.style.animationDuration =
+        duration + "s";
+
+    petal.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    petal.style.opacity =
+        Math.random() * .5 + .35;
+
+    petalContainer.appendChild(petal);
+
+
+    setTimeout(() => {
+
+        petal.remove();
+
+    }, (duration + 3) * 1000);
+
+}
+
+
+function createPetals(amount) {
+
+    for (let i = 0; i < amount; i++) {
+
+        setTimeout(() => {
+
+            createPetal();
+
+        }, i * 100);
+
     }
+}
 
-    function generateHeart() {
-        const total = 100;
-        const colors = ['#ffffff', '#fff9c4', '#fff176'];
 
-        for (let i = 0; i < total; i++) {
-            setTimeout(() => {
-                const t = (i / total) * Math.PI * 2;
-                const x = 16 * Math.pow(Math.sin(t), 3);
-                const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+/* PÉTALOS CONTINUOS */
 
-                const flower = document.createElement('div');
-                flower.className = 'lily';
-                flower.innerHTML = createLilySVG(colors[i % colors.length]);
-                
-                const jitter = (Math.random() - 0.5) * 15;
-                flower.style.left = `calc(50% + ${x * 12 + jitter}px)`;
-                flower.style.top = `calc(50% + ${y * 12 + jitter}px)`;
-                flower.style.transform = `rotate(${(Math.random() - 0.5) * 30}deg)`;
-                
-                garden.appendChild(flower);
-            }, i * 20);
+setInterval(() => {
+
+    createPetal();
+
+}, 900);
+
+
+/* =========================================================
+   CLICK EN CUALQUIER PARTE:
+   PEQUEÑO EFECTO DE FLOR
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target.closest(".open-button")
+        ) {
+            return;
         }
-    }
 
-    function createFallingFlowers() {
-        setInterval(() => {
-            const petal = document.createElement('div');
-            petal.className = 'falling-petal';
-            petal.innerHTML = Math.random() > 0.5 ? '🌻' : '✨';
-            petal.style.left = Math.random() * 100 + 'vw';
-            petal.style.fontSize = (Math.random() * 15 + 15) + 'px';
-            petal.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            document.body.appendChild(petal);
-            setTimeout(() => petal.remove(), 7000);
-        }, 600);
-    }
+        createClickFlower(
+            event.clientX,
+            event.clientY
+        );
 
-    const startDate = new Date("2024-03-21T00:00:00");
-    function updateTimer() {
-        const now = new Date();
-        const diff = now - startDate;
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor((diff / 3600000) % 24);
-        const m = Math.floor((diff / 60000) % 60);
-        const s = Math.floor((diff / 1000) % 60);
-        document.getElementById('timer').innerHTML = 
-            `Nuestro camino juntos lleva:<br><b>${d}d ${h}h ${m}m ${s}s</b>`;
     }
+);
 
-    generateHeart();
-    createFallingFlowers();
-    setInterval(updateTimer, 1000);
+
+function createClickFlower(x, y) {
+
+    const flower =
+        document.createElement("div");
+
+    flower.innerHTML =
+        "✿";
+
+    flower.style.position =
+        "fixed";
+
+    flower.style.left =
+        x + "px";
+
+    flower.style.top =
+        y + "px";
+
+    flower.style.zIndex =
+        "999";
+
+    flower.style.pointerEvents =
+        "none";
+
+    flower.style.color =
+        "#f3bd35";
+
+    flower.style.fontSize =
+        "20px";
+
+    flower.style.transform =
+        "translate(-50%, -50%)";
+
+    flower.style.transition =
+        "all 1s ease";
+
+    document.body.appendChild(flower);
+
+
+    requestAnimationFrame(() => {
+
+        flower.style.transform =
+            "translate(-50%, -100px) scale(1.5)";
+
+        flower.style.opacity =
+            "0";
+
+    });
+
+
+    setTimeout(() => {
+
+        flower.remove();
+
+    }, 1000);
+
+}
+
+
+/* =========================================================
+   APARICIÓN DE ELEMENTOS AL HACER SCROLL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".letter, .verse-section, .lily-garden, .info-card, .final-box"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity =
+                        "1";
+
+                    entry.target.style.transform =
+                        "translateY(0)";
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .15
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    element.style.opacity =
+        "0";
+
+    element.style.transform =
+        "translateY(30px)";
+
+    element.style.transition =
+        "opacity 1s ease, transform 1s ease";
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   PARALLAX SUAVE DEL ÁRBOL
+========================================================= */
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        const tree =
+            document.querySelector(".great-tree");
+
+        if (!tree) return;
+
+        const scroll =
+            window.scrollY;
+
+        if (scroll < window.innerHeight) {
+
+            tree.style.transform =
+                `translateY(${scroll * 0.05}px)`;
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MENSAJE OCULTO EN CONSOLA
+========================================================= */
+
+console.log(
+`
+🌷 Para Abigail 🌷
+
+Entre tantas flores,
+hay una que siempre hace
+que uno quiera detenerse.
+
+Dios es bueno.
+`
+);
+
 </script>
 
 </body>
 </html>
-
