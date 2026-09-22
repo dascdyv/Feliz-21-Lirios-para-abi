@@ -1,2825 +1,1010 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#f7d96b">
-<title>Un jardín para Abigail 🌼</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#bfe6f7">
+<title>Para Abi 🌼</title>
+
+<!--
+  PARA ABI · 21 de septiembre · Día de las flores amarillas
+  Un solo archivo. Solo necesita internet para cargar las dos letras (Google Fonts);
+  si no hay internet, usa letras del sistema y todo lo demás funciona igual.
+
+  Para cambiar cosas:
+    - Los textos están en el HTML (busca "Querida Abi", "Tu fe y tu corazón", etc.).
+    - La fecha del contador está en el JavaScript: START_DATE.
+-->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=' js';</script>
 
 <style>
 :root{
-  --sky:#a9dff3;
-  --sky2:#eaf8fb;
-  --cream:#fffaf0;
-  --paper:#fffdf8;
-  --gold:#f4c542;
-  --gold2:#ffe58a;
-  --gold3:#d99d1b;
-  --leaf:#658f55;
-  --leaf2:#91b96e;
-  --deep:#3e2d28;
-  --brown:#684c40;
-  --pink:#d96d91;
-  --pink2:#f4b7ca;
-  --white:#fff;
-  --shadow:0 25px 70px rgba(72,53,35,.14);
+  --gold:#c98a06;
+  --ink:#4a342b;
+  --script:'Great Vibes','Snell Roundhand','Apple Chancery','Brush Script MT',cursive;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
 }
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{
-  min-height:100vh;
-  overflow-x:hidden;
-  color:var(--deep);
-  font-family:"Quicksand",sans-serif;
-  background:var(--cream);
-}
-
-button{
-  font:inherit;
-}
-
-::selection{
-  background:#f7d96b;
-  color:#4a372e;
-}
-
-
-/* =========================================================
-   APERTURA
-========================================================= */
-
-#opening{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:grid;
-  place-items:center;
-  overflow:hidden;
-
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      rgba(255,255,255,.95),
-      transparent 35%
-    ),
-    linear-gradient(
-      180deg,
-      #8ed0eb 0%,
-      #dff4f5 58%,
-      #f8df9f 100%
-    );
-
-  transition:
-    opacity 1.1s ease,
-    visibility 1.1s ease;
-}
-
-#opening.hide{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
-
-.opening-glow{
-  position:absolute;
-
-  width:420px;
-  height:420px;
-
-  border-radius:50%;
-
-  background:
-    rgba(255,236,153,.42);
-
-  filter:blur(45px);
-
-  animation:
-    glow 5s ease-in-out infinite;
-}
-
-@keyframes glow{
-  50%{
-    transform:scale(1.12);
-    opacity:.75;
-  }
-}
-
-.opening-card{
-  position:relative;
-
-  width:min(90%,520px);
-
-  padding:
-    48px 28px
-    42px;
-
-  text-align:center;
-
-  border:
-    1px solid rgba(255,255,255,.8);
-
-  border-radius:34px;
-
-  background:
-    rgba(255,255,255,.66);
-
-  backdrop-filter:blur(22px);
-
-  box-shadow:
-    0 35px 90px rgba(68,77,55,.2);
-
-  animation:
-    cardFloat 4.5s ease-in-out infinite;
-}
-
-@keyframes cardFloat{
-  50%{
-    transform:translateY(-9px);
-  }
-}
-
-
-/* Lirio de apertura */
-
-.opening-flower{
-  width:86px;
-  height:86px;
-
-  margin:
-    0 auto 18px;
-
-  position:relative;
-
-  animation:
-    flowerBreath 4s ease-in-out infinite;
-}
-
-@keyframes flowerBreath{
-  50%{
-    transform:
-      scale(1.06)
-      rotate(2deg);
-  }
-}
-
-.opening-flower span{
-  position:absolute;
-
-  width:36px;
-  height:55px;
-
-  left:25px;
-  top:12px;
-
-  border-radius:
-    80% 20%
-    80% 20%;
-
-  background:
-    linear-gradient(
-      #fffdfd,
-      #f1a0bd
-    );
-
-  transform-origin:
-    bottom center;
-}
-
-.opening-flower span:nth-child(1){
-  transform:rotate(0);
-}
-
-.opening-flower span:nth-child(2){
-  transform:rotate(60deg);
-}
-
-.opening-flower span:nth-child(3){
-  transform:rotate(120deg);
-}
-
-.opening-flower span:nth-child(4){
-  transform:rotate(180deg);
-}
-
-.opening-flower span:nth-child(5){
-  transform:rotate(240deg);
-}
-
-.opening-flower span:nth-child(6){
-  transform:rotate(300deg);
-}
-
-.opening-flower i{
-  position:absolute;
-
-  width:15px;
-  height:15px;
-
-  left:35px;
-  top:38px;
-
-  border-radius:50%;
-
-  background:#f5c640;
-
-  box-shadow:
-    0 0 0 6px
-    rgba(255,228,126,.28);
-}
-
-.opening-kicker{
-  color:#5d7f55;
-
-  font:
-    1.55rem
-    "Dancing Script",
-    cursive;
-}
-
-.opening-name{
-  margin:
-    3px 0 8px;
-
-  color:var(--pink);
-
-  font:
-    600
-    clamp(3.6rem,14vw,5.6rem)
-    /.95
-    "Dancing Script",
-    cursive;
-}
-
-.opening-date{
-  margin:
-    17px 0 20px;
-
-  color:#a47719;
-
-  font-size:.76rem;
-  font-weight:700;
-
-  letter-spacing:4px;
-
-  text-transform:uppercase;
-}
-
-.opening-text{
-  max-width:410px;
-
-  margin:auto;
-
-  color:#674f45;
-
-  font:
-    1.22rem/1.6
-    "Cormorant Garamond",
-    serif;
-}
-
-.open-button{
-  margin-top:28px;
-
-  border:0;
-  border-radius:999px;
-
-  padding:
-    15px 27px;
-
-  cursor:pointer;
-
-  color:white;
-
-  font-weight:700;
-
-  background:
-    linear-gradient(
-      135deg,
-      #f1ca4c,
-      #dca51e
-    );
-
-  box-shadow:
-    0 13px 28px
-    rgba(194,145,24,.27);
-
-  transition:.3s ease;
-}
-
-.open-button:hover{
-  transform:
-    translateY(-3px)
-    scale(1.02);
-}
-
-.open-button:active{
-  transform:scale(.98);
-}
-
-.open-note{
-  margin-top:15px;
-
-  color:#866e61;
-
-  font-size:.72rem;
-
-  letter-spacing:1px;
-}
-
-
-/* =========================================================
-   PÉTALOS
-========================================================= */
-
-#petals{
-  position:fixed;
-  inset:0;
-
-  z-index:500;
-
-  pointer-events:none;
-
-  overflow:hidden;
-}
-
-.petal{
-  position:absolute;
-  top:-40px;
-
-  width:13px;
-  height:20px;
-
-  border-radius:
-    80% 20%
-    80% 20%;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fff08c,
-      #eab22a
-    );
-
-  opacity:.88;
-
-  filter:
-    drop-shadow(
-      0 3px 3px
-      rgba(130,91,12,.12)
-    );
-
-  animation:
-    fall var(--dur)
-    linear forwards;
-}
-
-@keyframes fall{
-
-  0%{
-    transform:
-      translate3d(0,-30px,0)
-      rotate(0);
-  }
-
-  25%{
-    transform:
-      translate3d(var(--x1),25vh,0)
-      rotate(100deg);
-  }
-
-  50%{
-    transform:
-      translate3d(var(--x2),52vh,0)
-      rotate(220deg);
-  }
-
-  75%{
-    transform:
-      translate3d(var(--x3),76vh,0)
-      rotate(310deg);
-  }
-
-  100%{
-    transform:
-      translate3d(var(--x4),110vh,0)
-      rotate(430deg);
-  }
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-  position:relative;
-
-  min-height:100svh;
-
-  display:grid;
-  place-items:center;
-
-  overflow:hidden;
-
-  isolation:isolate;
-}
-
-.sky{
-  position:absolute;
-  inset:0;
-
-  z-index:-10;
-
-  background:
-
-    radial-gradient(
-      circle at 80% 16%,
-      rgba(255,244,164,.95) 0 5%,
-      transparent 17%
-    ),
-
-    linear-gradient(
-      180deg,
-      #86cdea 0%,
-      #c9edf5 45%,
-      #f9e5b6 75%,
-      #c7db9a 100%
-    );
-}
-
-.sun{
-  position:absolute;
-
-  right:8%;
-  top:8%;
-
-  width:190px;
-  height:190px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      #fffbd9 0 24%,
-      #ffe98b 40%,
-      rgba(255,219,98,.28) 61%,
-      transparent 72%
-    );
-
-  animation:
-    sunPulse 6s
-    ease-in-out infinite;
-}
-
-@keyframes sunPulse{
-  50%{
-    transform:scale(1.08);
-  }
-}
-
-.cloud{
-  position:absolute;
-
-  width:180px;
-  height:50px;
-
-  border-radius:50px;
-
-  background:
-    rgba(255,255,255,.58);
-
-  filter:blur(1px);
-
-  animation:
-    cloud 55s
-    linear infinite;
-}
-
-.cloud:before,
-.cloud:after{
-  content:"";
-
-  position:absolute;
-
-  border-radius:50%;
-
-  background:inherit;
-}
-
-.cloud:before{
-  width:80px;
-  height:80px;
-
-  left:25px;
-  bottom:4px;
-}
-
-.cloud:after{
-  width:105px;
-  height:105px;
-
-  right:8px;
-  bottom:0;
-}
-
-.cloud.a{
-  top:17%;
-  left:-220px;
-}
-
-.cloud.b{
-  top:30%;
-  left:-300px;
-
-  transform:scale(.65);
-
-  animation-duration:72s;
-  animation-delay:12s;
-}
-
-@keyframes cloud{
-  to{
-    transform:
-      translateX(
-        calc(100vw + 500px)
-      );
-  }
-}
-
-.hills{
-  position:absolute;
-
-  left:-5%;
-  right:-5%;
-  bottom:13%;
-
-  height:300px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #a9cc83,
-      #6c9d5c
-    );
-
-  clip-path:
-    polygon(
-      0 65%,
-      12% 34%,
-      25% 57%,
-      38% 27%,
-      51% 59%,
-      65% 30%,
-      80% 58%,
-      91% 37%,
-      100% 57%,
-      100% 100%,
-      0 100%
-    );
-
-  z-index:-5;
-}
-
-
-/* =========================================================
-   ÁRBOL
-========================================================= */
-
-.tree{
-  position:absolute;
-
-  width:560px;
-  height:680px;
-
-  left:-90px;
-  bottom:3%;
-
-  z-index:1;
-
-  pointer-events:none;
-}
-
-.trunk{
-  position:absolute;
-
-  bottom:0;
-  left:225px;
-
-  width:105px;
-  height:465px;
-
-  border-radius:
-    55% 45%
-    12% 12%;
-
-  background:
-    linear-gradient(
-      90deg,
-      #4b3429,
-      #80583d 47%,
-      #4d3428
-    );
-
-  transform:rotate(5deg);
-
-  box-shadow:
-    inset 15px 0 20px
-    rgba(0,0,0,.12);
-}
-
-.branch{
-  position:absolute;
-
-  height:27px;
-
-  border-radius:30px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #503629,
-      #81593d
-    );
-
-  transform-origin:
-    left center;
-}
-
-.b1{
-  left:250px;
-  top:250px;
-
-  width:285px;
-
-  transform:rotate(-30deg);
-}
-
-.b2{
-  left:250px;
-  top:195px;
-
-  width:300px;
-
-  transform:rotate(22deg);
-}
-
-.b3{
-  left:230px;
-  top:315px;
-
-  width:230px;
-
-  transform:rotate(31deg);
-}
-
-.b4{
-  left:255px;
-  top:155px;
-
-  width:220px;
-
-  transform:rotate(-47deg);
-}
-
-.b5{
-  left:280px;
-  top:105px;
-
-  width:160px;
-
-  transform:rotate(40deg);
-}
-
-.crown{
-  position:absolute;
-
-  left:30px;
-  top:0;
-
-  width:510px;
-  height:330px;
-}
-
-.blossom{
-  position:absolute;
-
-  width:58px;
-  height:58px;
-
-  animation:
-    sway 4s
-    ease-in-out infinite;
-}
-
-.blossom:before,
-.blossom:after{
-  content:"";
-
-  position:absolute;
-
-  inset:8px;
-
-  border-radius:
-    55% 25%
-    55% 25%;
-
-  background:
-    radial-gradient(
-      circle at 50% 50%,
-      #fff6b3 0 12%,
-      #f5ca42 14% 66%,
-      #dfa51d 70%
-    );
-
-  box-shadow:
-    0 0 17px
-    rgba(255,214,64,.42);
-}
-
-.blossom:after{
-  transform:rotate(72deg);
-}
-
-@keyframes sway{
-  50%{
-    transform:
-      translateY(-5px)
-      rotate(4deg);
-  }
-}
-
-.blossom:nth-child(1){
-  left:25px;
-  top:78px;
-}
-
-.blossom:nth-child(2){
-  left:92px;
-  top:25px;
-}
-
-.blossom:nth-child(3){
-  left:160px;
-  top:55px;
-}
-
-.blossom:nth-child(4){
-  left:230px;
-  top:8px;
-}
-
-.blossom:nth-child(5){
-  left:305px;
-  top:47px;
-}
-
-.blossom:nth-child(6){
-  left:380px;
-  top:20px;
-}
-
-.blossom:nth-child(7){
-  left:450px;
-  top:92px;
-}
-
-.blossom:nth-child(8){
-  left:58px;
-  top:142px;
-}
-
-.blossom:nth-child(9){
-  left:130px;
-  top:118px;
-}
-
-.blossom:nth-child(10){
-  left:208px;
-  top:135px;
-}
-
-.blossom:nth-child(11){
-  left:285px;
-  top:115px;
-}
-
-.blossom:nth-child(12){
-  left:360px;
-  top:145px;
-}
-
-.blossom:nth-child(13){
-  left:425px;
-  top:168px;
-}
-
-.blossom:nth-child(14){
-  left:90px;
-  top:205px;
-}
-
-.blossom:nth-child(15){
-  left:170px;
-  top:210px;
-}
-
-.blossom:nth-child(16){
-  left:255px;
-  top:198px;
-}
-
-.blossom:nth-child(17){
-  left:335px;
-  top:218px;
-}
-
-.blossom:nth-child(18){
-  left:405px;
-  top:230px;
-}
-
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
-
-.hero-content{
-  position:relative;
-
-  z-index:10;
-
-  width:min(92%,650px);
-
-  margin-left:260px;
-
-  padding:
-    48px 38px;
-
-  text-align:center;
-
-  border:
-    1px solid
-    rgba(255,255,255,.82);
-
-  border-radius:38px;
-
-  background:
-    rgba(255,255,255,.67);
-
-  backdrop-filter:blur(17px);
-
-  box-shadow:var(--shadow);
-
-  animation:
-    appear 1.4s ease both;
-}
-
-@keyframes appear{
-
-  from{
-    opacity:0;
-    transform:translateY(35px);
-  }
-
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-.hero-kicker{
-  color:#55774e;
-
-  font:
-    1.55rem
-    "Dancing Script",
-    cursive;
-}
-
-.hero-title{
-  margin:
-    5px 0 17px;
-
-  color:var(--pink);
-
-  font:
-    600
-    clamp(4rem,13vw,7rem)
-    /.9
-    "Dancing Script",
-    cursive;
-}
-
-.badge{
-  display:inline-block;
-
-  padding:
-    8px 16px;
-
-  border-radius:999px;
-
-  background:
-    rgba(248,204,65,.19);
-
-  color:#9d7214;
-
-  font-size:.72rem;
-  font-weight:700;
-
-  letter-spacing:2px;
-}
-
-.hero-copy{
-  margin:
-    24px auto 0;
-
-  max-width:540px;
-
-  color:#4e3a32;
-
-  font:
-    1.42rem/1.62
-    "Cormorant Garamond",
-    serif;
-}
-
-.hero-copy strong{
-  color:#c35d7d;
-}
-
-.scroll{
-  position:absolute;
-
-  bottom:20px;
-  left:50%;
-
-  transform:
-    translateX(-50%);
-
-  color:
-    rgba(58,54,44,.64);
-
-  text-align:center;
-
-  font-size:.68rem;
-
-  letter-spacing:3px;
-}
-
-.scroll span{
-  display:block;
-
-  margin-top:6px;
-
-  font-size:1.3rem;
-
-  animation:
-    down 1.4s infinite;
-}
-
-@keyframes down{
-  50%{
-    transform:translateY(8px);
-  }
-}
-
-
-/* =========================================================
-   SECCIONES
-========================================================= */
-
-.section{
-  position:relative;
-
-  padding:
-    105px 20px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fff9ef,
-      #fffdf8
-    );
-}
-
-.section:nth-of-type(even){
-  background:
-    linear-gradient(
-      180deg,
-      #fffdf8,
-      #fff3f6
-    );
-}
-
-.inner{
-  width:min(100%,980px);
-  margin:auto;
-}
-
-.eyebrow{
-  text-align:center;
-
-  color:#b4861b;
-
-  font-size:.7rem;
-  font-weight:700;
-
-  letter-spacing:4px;
-
-  text-transform:uppercase;
-}
-
-.section-title{
-  margin:
-    8px 0 42px;
-
-  text-align:center;
-
-  color:#c76080;
-
-  font:
-    600
-    clamp(2.8rem,8vw,4.7rem)
-    /1
-    "Dancing Script",
-    cursive;
-}
-
-
-/* =========================================================
-   CARTA
-========================================================= */
-
+  font-family:var(--serif);font-weight:500;font-size:1.22rem;line-height:1.75;
+  color:var(--ink);background:#fff7d9;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+body.locked{overflow:hidden}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #f2a900;outline-offset:3px;border-radius:8px}
+
+/* ================= PORTADA ================= */
+.cover{
+  position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:24px;overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 38%,#fffdf1 0%,#e8f7fd 48%,#b3e0f5 100%);
+  transition:opacity 1.5s ease,visibility 0s linear 1.5s;touch-action:none;overscroll-behavior:none;
+}
+.cover.gone{opacity:0;visibility:hidden;pointer-events:none}
+.sparks{position:absolute;inset:0;pointer-events:none}
+.sparks i{
+  position:absolute;width:7px;height:7px;border-radius:50%;opacity:0;
+  background:radial-gradient(circle,#fff 0 30%,rgba(255,230,120,.9) 55%,transparent 72%);
+  animation:twinkle 3.6s ease-in-out infinite;
+}
+.flash{position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:radial-gradient(circle at 50% 46%,rgba(255,250,210,.95),rgba(255,250,210,0) 62%)}
+.cover.opening .flash{animation:flash 1.9s ease-out forwards}
+.cv-date{font-style:italic;font-size:1.15rem;color:#7a6231;letter-spacing:.04em;transition:opacity .7s}
+.cv-title{
+  font-family:var(--script);font-weight:400;font-size:clamp(3.6rem,18vw,5.8rem);line-height:1.15;padding:0 .15em .1em;
+  color:#d4930a;background:linear-gradient(180deg,#f9d25a 0%,#d4930a 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;transition:opacity .7s;
+}
+.cv-sub{font-style:italic;font-size:clamp(1.15rem,4.6vw,1.4rem);color:#6a5646;max-width:19em;line-height:1.5;transition:opacity .7s}
+.bud-wrap{width:min(58vw,260px);margin:.2rem 0;filter:drop-shadow(0 0 24px rgba(255,238,150,.95));animation:bob 6s ease-in-out infinite}
+.bud-wrap svg{display:block;width:100%;height:auto;overflow:visible}
+.btn-open{
+  margin-top:.7rem;padding:.6rem 3rem .75rem;border:0;border-radius:999px;cursor:pointer;
+  font-family:var(--script);font-size:2.1rem;line-height:1.2;color:#5b3d00;
+  background:linear-gradient(180deg,#ffe98f,#f5bb1f);
+  box-shadow:0 10px 28px rgba(232,168,20,.45),inset 0 1px 0 rgba(255,255,255,.75);
+  transition:transform .25s ease,box-shadow .25s ease,opacity .7s;
+}
+.btn-open:hover,.btn-open:focus-visible{transform:translateY(-2px);box-shadow:0 14px 34px rgba(232,168,20,.55),inset 0 1px 0 rgba(255,255,255,.75)}
+.btn-open:active{transform:scale(.97)}
+.cover.opening .cv-date,.cover.opening .cv-title,.cover.opening .cv-sub,.cover.opening .btn-open{opacity:0}
+.cover.opening .btn-open{pointer-events:none}
+
+/* lirio de la portada: se abre al tocar */
+.bud .petal{
+  transform:rotate(var(--c)) scale(var(--sx),1);
+  transition:transform 2s cubic-bezier(.22,.9,.28,1) var(--dl,0s);
+}
+.bud.open .petal{transform:rotate(var(--a)) scale(1,1)}
+.bud .tilt{transition:transform 2s ease}
+.bud.open .tilt{transform:rotate(-6deg) scale(1,.82)}
+.bud .stamens{opacity:0;transition:opacity 1.2s ease 1s}
+.bud.open .stamens{opacity:1}
+.bud .throat{opacity:.55;transition:opacity 1s ease .6s}
+.bud.open .throat{opacity:1}
+
+/* sonido */
+.snd{
+  position:fixed;z-index:60;top:calc(env(safe-area-inset-top,0px) + 12px);right:12px;width:42px;height:42px;
+  border-radius:50%;border:0;background:rgba(255,252,238,.88);color:#a76b00;cursor:pointer;
+  box-shadow:0 4px 14px rgba(90,70,10,.2);display:none;align-items:center;justify-content:center;
+}
+body.opened .snd{display:flex}
+.snd.off::after{content:'';position:absolute;width:26px;height:2px;border-radius:2px;background:#a76b00;transform:rotate(-45deg)}
+
+/* ================= HERO: EL ÁRBOL ================= */
+.hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;isolation:isolate;background:#bfe6f7}
+.sky{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#86cff2 0%,#b4e3f8 24%,#def3fb 46%,#fff3c6 72%,#ffe28f 100%)}
+.sunwrap{position:absolute;z-index:0;top:-14vmin;right:-16vmin;width:70vmin;height:70vmin;pointer-events:none}
+.sun{position:absolute;inset:24%;border-radius:50%;
+  background:radial-gradient(circle,#fffef4 0%,#fff4b4 36%,rgba(255,228,120,.55) 58%,rgba(255,228,120,0) 74%)}
+.rays{position:absolute;inset:-6%;border-radius:50%;
+  background:repeating-conic-gradient(rgba(255,244,176,.3) 0 5deg,transparent 5deg 16deg);
+  -webkit-mask:radial-gradient(circle,#000 6%,transparent 62%);mask:radial-gradient(circle,#000 6%,transparent 62%)}
+.drifters{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.drifter{position:absolute;left:0;will-change:transform;animation:drift linear infinite}
+.drifter svg{display:block;width:100%;height:auto;filter:drop-shadow(0 8px 12px rgba(110,160,190,.22))}
+.d1{top:19%;width:clamp(120px,27vw,270px);animation-duration:110s;animation-delay:-38s}
+.d2{top:33%;width:clamp(90px,19vw,190px);animation-duration:140s;animation-delay:-96s;opacity:.85}
+.d3{top:11%;width:clamp(100px,22vw,220px);animation-duration:125s;animation-delay:-8s;opacity:.9}
+.d4{top:26%;width:clamp(96px,17vw,170px);animation-duration:170s;animation-delay:-118s}
+.d4 svg{animation:bob 7s ease-in-out infinite}
+.hills-back{position:absolute;z-index:2;left:0;bottom:9%;width:100%;height:22%;display:block}
+.tree-glow{
+  position:absolute;z-index:3;left:50%;top:56%;width:min(130vw,1000px);aspect-ratio:1;transform:translate(-50%,-50%);
+  border-radius:50%;pointer-events:none;opacity:0;transition:opacity 3s ease 2.2s;
+  background:radial-gradient(circle,rgba(255,226,120,.5) 0%,rgba(255,226,120,.22) 38%,rgba(255,226,120,0) 68%);
+}
+body.opened .tree-glow{opacity:1}
+#tree{position:absolute;inset:0;width:100%;height:100%;z-index:4;display:block}
+.hill-front{position:absolute;z-index:5;left:0;bottom:-1px;width:100%;height:19%;display:block}
+.meadow{position:absolute;z-index:6;left:0;right:0;bottom:0;height:19%;pointer-events:none}
+.meadow svg{position:absolute}
+
+.hero-text{
+  position:absolute;z-index:7;left:0;right:0;top:0;text-align:center;pointer-events:none;
+  padding:calc(env(safe-area-inset-top,0px) + 4vh) 20px 0;
+}
+.hero-text>*{opacity:0;transition:opacity 1.8s ease}
+body.opened .hero-text>*{opacity:1}
+body.opened .hero-text>:nth-child(2){transition-delay:.5s}
+body.opened .hero-text>:nth-child(3){transition-delay:1s}
+body.opened .hero-text>:nth-child(4){transition-delay:1.6s}
+.god{font-family:var(--script);font-size:clamp(1.8rem,6vw,2.3rem);line-height:1.2;color:#2f7fa8;text-shadow:0 1px 0 rgba(255,255,255,.85)}
+.date{font-style:italic;font-size:1.12rem;line-height:1.3;color:#7a5f22}
+.title{
+  font-family:var(--script);font-weight:400;font-size:clamp(2.7rem,11vw,5rem);line-height:1.06;color:#b57400;margin-top:.2rem;
+  text-shadow:0 2px 0 rgba(255,255,255,.75),0 0 30px rgba(255,255,255,.95);
+}
+.for{font-style:italic;font-size:clamp(1.15rem,4vw,1.45rem);color:#6f5644;margin-top:.3rem;line-height:1.4}
+.scroll-hint{
+  position:absolute;z-index:7;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none;
+  font-family:var(--script);font-size:1.7rem;color:#fff;text-shadow:0 1px 6px rgba(40,90,40,.6);
+  opacity:0;transition:opacity 1.5s ease 6.5s;
+}
+body.opened .scroll-hint{opacity:1}
+.scroll-hint svg{width:22px;height:22px;margin-top:2px;animation:nudge 2.4s ease-in-out infinite}
+
+/* ================= CARTA ================= */
 .letter{
-  position:relative;
-
-  padding:
-    55px
-    clamp(25px,6vw,70px);
-
-  border:
-    1px solid
-    #f1dfc4;
-
-  border-radius:34px;
-
-  background:
-
-    radial-gradient(
-      circle at 8% 12%,
-      rgba(249,207,72,.12),
-      transparent 18%
-    ),
-
-    radial-gradient(
-      circle at 92% 88%,
-      rgba(218,104,143,.1),
-      transparent 20%
-    ),
-
-    #fffefb;
-
-  box-shadow:var(--shadow);
-}
-
-.letter:before,
-.letter:after{
-  position:absolute;
-
-  font-size:1.7rem;
-
-  color:#eac64b;
-}
-
-.letter:before{
-  content:"✦";
-
-  top:22px;
-  left:27px;
-}
-
-.letter:after{
-  content:"✦";
-
-  right:27px;
-  bottom:22px;
-
-  color:#df86a3;
-}
-
-.letter p{
-  color:#624a40;
-
-  text-align:center;
-
-  font:
-    1.38rem/1.78
-    "Cormorant Garamond",
-    serif;
-}
-
-.highlight{
-  color:#c65f7d;
-  font-weight:700;
-}
-
-
-/* =========================================================
-   JARDÍN DE LIRIOS
-========================================================= */
-
-.garden{
-  position:relative;
-
-  min-height:600px;
-
-  overflow:hidden;
-
-  border-radius:38px;
-
-  background:
-
-    radial-gradient(
-      circle at 72% 18%,
-      rgba(255,255,255,.8),
-      transparent 13%
-    ),
-
-    linear-gradient(
-      180deg,
-      #a9def0 0%,
-      #dff4ef 48%,
-      #8fbd70 49%,
-      #5e934f 100%
-    );
-
-  box-shadow:var(--shadow);
-}
-
-.garden-sun{
-  position:absolute;
-
-  right:8%;
-  top:7%;
-
-  width:105px;
-  height:105px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      #fffbd9,
-      #ffe37a 48%,
-      rgba(255,220,98,.05) 72%
-    );
-}
-
-.grass{
-  position:absolute;
-
-  left:-5%;
-  right:-5%;
-  bottom:-10px;
-
-  height:45%;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 10%,
-      #a5cf7a,
-      #60964f 70%
-    );
-
-  border-radius:
-    50% 50% 0 0;
-}
-
-.lily{
-  position:absolute;
-
-  width:105px;
-  height:150px;
-
-  transform-origin:
-    bottom center;
-
-  animation:
-    lilySway 5s
-    ease-in-out infinite;
-}
-
-@keyframes lilySway{
-  50%{
-    transform:
-      rotate(3deg)
-      translateY(-3px);
-  }
-}
-
-.stem{
-  position:absolute;
-
-  bottom:0;
-  left:49px;
-
-  width:7px;
-  height:105px;
-
-  border-radius:9px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #477b3c,
-      #82ad5d
-    );
-}
-
-.leaf{
-  position:absolute;
-
-  bottom:35px;
-  left:18px;
-
-  width:62px;
-  height:21px;
-
-  border-radius:
-    100% 0
-    100% 0;
-
-  background:#5e974b;
-
-  transform:rotate(-25deg);
-}
-
-.head{
-  position:absolute;
-
-  top:5px;
-  left:16px;
-
-  width:75px;
-  height:75px;
-}
-
-.petal{
-  position:absolute;
-
-  left:20px;
-  top:8px;
-
-  width:37px;
-  height:60px;
-
-  border-radius:
-    72% 28%
-    72% 28%;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fffdfd,
-      #f0a1bd
-    );
-
-  transform-origin:
-    bottom center;
-
-  box-shadow:
-    inset 3px 0 6px
-    rgba(255,255,255,.7);
-}
-
-.petal:nth-child(1){
-  transform:rotate(0);
-}
-
-.petal:nth-child(2){
-  transform:rotate(60deg);
-}
-
-.petal:nth-child(3){
-  transform:rotate(120deg);
-}
-
-.petal:nth-child(4){
-  transform:rotate(180deg);
-}
-
-.petal:nth-child(5){
-  transform:rotate(240deg);
-}
-
-.petal:nth-child(6){
-  transform:rotate(300deg);
-}
-
-.center{
-  position:absolute;
-
-  left:31px;
-  top:38px;
-
-  width:14px;
-  height:14px;
-
-  border-radius:50%;
-
-  background:#f6c93e;
-
-  box-shadow:
-    0 0 0 4px
-    rgba(255,233,124,.3);
-}
-
-
-/* posiciones */
-
-.l1{
-  left:5%;
-  bottom:27px;
-
-  transform:scale(.72);
-}
-
-.l2{
-  left:20%;
-  bottom:35px;
-
-  transform:scale(.58);
-}
-
-.l3{
-  left:30%;
-  bottom:18px;
-
-  transform:scale(.82);
-}
-
-.l4{
-  right:7%;
-  bottom:25px;
-
-  transform:scale(.7);
-}
-
-.l5{
-  right:20%;
-  bottom:48px;
-
-  transform:scale(.58);
-}
-
-.l6{
-  right:30%;
-  bottom:17px;
-
-  transform:scale(.82);
-}
-
-
-/* lirio principal */
-
-.special{
-  position:absolute;
-
-  left:50%;
-  bottom:38px;
-
-  transform:
-    translateX(-50%)
-    scale(1.5);
-
-  z-index:5;
-
-  filter:
-    drop-shadow(
-      0 17px 14px
-      rgba(46,76,36,.2)
-    );
-}
-
-.special .petal{
-  background:
-    linear-gradient(
-      180deg,
-      #fff,
-      #f19ab8
-    );
-}
-
-.special-label{
-  position:absolute;
-
-  left:50%;
-  bottom:18px;
-
-  z-index:8;
-
-  transform:
-    translateX(-50%);
-
-  white-space:nowrap;
-
-  padding:
-    8px 19px;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,255,255,.83);
-
-  backdrop-filter:blur(8px);
-
-  color:#c65f7d;
-
-  font:
-    1.35rem
-    "Dancing Script",
-    cursive;
-}
-
-.garden-caption{
-  position:absolute;
-
-  top:25px;
-  left:50%;
-
-  transform:
-    translateX(-50%);
-
-  z-index:8;
-
-  padding:
-    8px 16px;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,255,255,.55);
-
-  color:#4e7150;
-
-  font-size:.68rem;
-  font-weight:700;
-
-  letter-spacing:2px;
-}
-
-
-/* =========================================================
-   CANTARES
-========================================================= */
-
-.verse{
-  position:relative;
-
-  padding:
-    72px 30px;
-
-  text-align:center;
-
-  border:
-    1px solid
-    #efdec9;
-
-  border-radius:38px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fffef9,
-      #fff3f7
-    );
-
-  box-shadow:var(--shadow);
-
-  overflow:hidden;
-}
-
-.verse:before,
-.verse:after{
-  position:absolute;
-
-  font-size:4rem;
-
-  opacity:.17;
-}
-
-.verse:before{
-  content:"🌿";
-
-  left:20px;
-  top:18px;
-}
-
-.verse:after{
-  content:"🌼";
-
-  right:20px;
-  bottom:18px;
-}
-
-.verse p{
-  max-width:720px;
-
-  margin:auto;
-
-  color:#49372f;
-
-  font:
-    italic
-    clamp(1.8rem,5vw,2.75rem)
-    /1.4
-    "Cormorant Garamond",
-    serif;
-}
-
-.ref{
-  margin-top:25px;
-
-  color:#c35e7b;
-
-  font-weight:700;
-
-  letter-spacing:1px;
-}
-
-
-/* =========================================================
-   FLORES AMARILLAS
-========================================================= */
-
-.september{
-  position:relative;
-
-  overflow:hidden;
-
-  text-align:center;
-
-  padding:
-    110px 20px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fff9e8,
-      #ffeab0
-    );
-}
-
-.september h2{
-  color:#cf9413;
-
-  font:
-    600
-    clamp(3.2rem,9vw,5.7rem)
-    /1
-    "Dancing Script",
-    cursive;
-}
-
-.september .date{
-  margin:
-    10px 0 30px;
-
-  color:#9b7217;
-
-  font-size:.74rem;
-  font-weight:700;
-
-  letter-spacing:5px;
-}
-
-.september p{
-  width:min(92%,720px);
-
-  margin:auto;
-
-  color:#604a37;
-
-  font:
-    1.42rem/1.72
-    "Cormorant Garamond",
-    serif;
-}
-
-.yellow-row{
-  display:flex;
-
-  justify-content:center;
-
-  gap:12px;
-
-  margin:
-    38px auto 0;
-}
-
-.yellow-row i{
-  width:48px;
-  height:48px;
-
-  position:relative;
-
-  display:block;
-
-  animation:
-    yellowFloat 3.5s
-    ease-in-out infinite;
-}
-
-.yellow-row i:before,
-.yellow-row i:after{
-  content:"";
-
-  position:absolute;
-
-  inset:5px;
-
-  border-radius:
-    60% 20%
-    60% 20%;
-
-  background:
-    linear-gradient(
-      #fff19a,
-      #efbd2c
-    );
-}
-
-.yellow-row i:after{
-  transform:rotate(72deg);
-}
-
-.yellow-row i:nth-child(2){
-  animation-delay:.5s;
-}
-
-.yellow-row i:nth-child(3){
-  animation-delay:1s;
-}
-
-@keyframes yellowFloat{
-  50%{
-    transform:
-      translateY(-8px)
-      rotate(5deg);
-  }
-}
-
-
-/* =========================================================
-   FE
-========================================================= */
-
-.faith-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:24px;
-}
-
-.card{
-  padding:
-    38px 30px;
-
-  text-align:center;
-
-  border-radius:30px;
-
-  background:
-    rgba(255,255,255,.82);
-
-  border:
-    1px solid
-    #f3e4d7;
-
-  box-shadow:var(--shadow);
-}
-
-.card .icon{
-  font-size:2.2rem;
-
-  margin-bottom:15px;
-}
-
-.card h3{
-  color:#c55e7c;
-
-  font:
-    2rem
-    "Dancing Script",
-    cursive;
-
-  margin-bottom:13px;
-}
-
-.card p{
-  color:#634d42;
-
-  font:
-    1.25rem/1.65
-    "Cormorant Garamond",
-    serif;
-}
-
-
-/* =========================================================
-   FINAL
-========================================================= */
-
-.final{
-  min-height:90svh;
-
-  position:relative;
-
-  display:grid;
-
-  place-items:center;
-
-  padding:
-    90px 20px;
-
-  overflow:hidden;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fff1f3,
-      #f6dfc3
-    );
-}
-
-.final:before{
-  content:"";
-
-  position:absolute;
-
-  width:520px;
-  height:520px;
-
-  border-radius:50%;
-
-  background:
-    rgba(255,218,118,.18);
-
-  filter:blur(50px);
-}
-
-.final-box{
-  position:relative;
-
-  z-index:2;
-
-  width:min(92%,760px);
-
-  padding:
-    65px 35px;
-
-  text-align:center;
-
-  border:
-    1px solid
-    rgba(255,255,255,.9);
-
-  border-radius:42px;
-
-  background:
-    rgba(255,255,255,.7);
-
-  backdrop-filter:blur(18px);
-
-  box-shadow:var(--shadow);
-}
-
-.final-small{
-  color:#ad821b;
-
-  font-size:.7rem;
-
-  letter-spacing:4px;
-
-  text-transform:uppercase;
-}
-
-.final h2{
-  margin:
-    10px 0 25px;
-
-  color:#c95f7f;
-
-  font:
-    600
-    clamp(3.2rem,9vw,5.5rem)
-    /1
-    "Dancing Script",
-    cursive;
-}
-
-.final p{
-  color:#604940;
-
-  font:
-    1.45rem/1.75
-    "Cormorant Garamond",
-    serif;
-}
-
-.final-sign{
-  margin-top:30px;
-
-  color:#c55f7d;
-
-  font:
-    2.15rem
-    "Dancing Script",
-    cursive;
-}
-
-.final-flower{
-  font-size:2rem;
-
-  margin-top:16px;
-
-  letter-spacing:8px;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-  padding:
-    30px 20px;
-
-  text-align:center;
-
-  background:#56433b;
-
-  color:#fff7e9;
-}
-
-footer strong{
-  display:block;
-
-  color:#ffe28a;
-
-  font:
-    1.55rem
-    "Dancing Script",
-    cursive;
-
-  margin-bottom:5px;
-}
-
-footer span{
-  font-size:.72rem;
-
-  opacity:.78;
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media(max-width:900px){
-
-  .tree{
-    left:-190px;
-
-    transform:scale(.82);
-
-    transform-origin:
-      bottom left;
-  }
-
-  .hero-content{
-    margin-left:120px;
-
-    width:min(88%,600px);
-  }
-}
-
-@media(max-width:700px){
-
-  .hero{
-    min-height:100svh;
-  }
-
-  .tree{
-    left:-285px;
-    bottom:2%;
-
-    transform:scale(.62);
-
-    opacity:.9;
-  }
-
-  .hero-content{
-    margin:
-      95px 14px 30px;
-
-    padding:
-      42px 22px;
-
-    background:
-      rgba(255,255,255,.77);
-  }
-
-  .hero-copy{
-    font-size:1.25rem;
-  }
-
-  .sun{
-    width:130px;
-    height:130px;
-
-    right:1%;
-    top:7%;
-  }
-
-  .faith-grid{
-    grid-template-columns:1fr;
-  }
-
-  .section{
-    padding:
-      82px 15px;
-  }
-
-  .garden{
-    min-height:570px;
-  }
-
-  .special{
-    transform:
-      translateX(-50%)
-      scale(1.15);
-  }
-
-  .special-label{
-    font-size:1.08rem;
-  }
-
-  .l1{left:0}
-  .l2{left:15%}
-  .l3{left:27%}
-
-  .l4{right:0}
-  .l5{right:14%}
-  .l6{right:26%}
-}
-
-@media(max-width:450px){
-
-  .opening-card{
-    padding:
-      38px 20px;
-  }
-
-  .opening-name{
-    font-size:3.8rem;
-  }
-
-  .hero-title{
-    font-size:3.7rem;
-  }
-
-  .hero-content{
-    padding:
-      38px 18px;
-  }
-
-  .badge{
-    letter-spacing:1.2px;
-    font-size:.64rem;
-  }
-
-  .letter{
-    padding:
-      45px 21px;
-  }
-
-  .letter p{
-    font-size:1.22rem;
-  }
-
-  .verse{
-    padding:
-      58px 20px;
-  }
-
-  .garden{
-    min-height:540px;
-  }
-
-  .special{
-    transform:
-      translateX(-50%)
-      scale(1);
-  }
-
-  .special-label{
-    bottom:15px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-
-  *,
-  *:before,
-  *:after{
-    animation-duration:.001ms!important;
-    animation-iteration-count:1!important;
-    scroll-behavior:auto!important;
-  }
+  position:relative;z-index:1;padding:clamp(70px,12vh,120px) 20px clamp(80px,12vh,130px);
+  background:linear-gradient(180deg,#5f9f56 0,#9ccb83 5%,#e4f0c4 13%,#fff7d9 24%);
+}
+.paper{
+  position:relative;max-width:560px;margin:0 auto;padding:2.8rem 1.9rem 2.4rem;text-align:center;
+  background:linear-gradient(180deg,#fffef8,#fff9e6);border-radius:6px;
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 22px 50px -18px rgba(120,96,20,.35),0 2px 6px rgba(120,96,20,.12);
+}
+.paper::before{content:'';position:absolute;inset:10px;border:1px solid rgba(214,168,40,.4);border-radius:3px;pointer-events:none}
+.paper .orn{display:block;width:52px;height:52px;margin:-4.4rem auto .9rem}
+.hello{font-family:var(--script);font-size:2.6rem;line-height:1.1;color:#b57400;margin-bottom:.5rem}
+.paper p{margin:.85rem 0}
+.paper .last{font-family:var(--script);font-size:2.4rem;line-height:1.2;color:#cf5f89;margin-top:1.3rem}
+
+/* ================= JARDÍN ================= */
+.garden{padding-top:clamp(40px,8vh,80px);background:linear-gradient(180deg,#fff7d9 0,#fff3c4 100%)}
+.garden-text{max-width:520px;margin:0 auto 6px;padding:0 24px;text-align:center}
+.garden-text p{font-style:italic;font-size:clamp(1.55rem,5.8vw,2.05rem);line-height:1.4;color:#6b4d3a;margin:.7rem 0}
+.stage{
+  position:relative;width:100%;height:clamp(500px,76vh,700px);height:clamp(500px,76svh,700px);margin-top:12px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,243,196,0) 0%,#eaf3c0 45%,#c5e29c 72%,#93cb76 90%,#7fbb69 100%);
+}
+.stage::before{
+  content:'';position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;transition:opacity 2s ease;
+  background:radial-gradient(70% 60% at 50% 34%,rgba(255,255,255,0) 30%,rgba(70,110,60,.24) 100%);
+}
+.stage.lit::before{opacity:1}
+.halo{
+  position:absolute;z-index:1;left:50%;top:33%;width:min(120vw,760px);aspect-ratio:1;border-radius:50%;pointer-events:none;
+  transform:translate(-50%,-50%) scale(.4);opacity:0;
+  background:radial-gradient(circle,rgba(255,252,222,.98) 0%,rgba(255,238,160,.6) 34%,rgba(255,226,120,0) 68%);
+  transition:opacity 1.8s ease,transform 1.8s cubic-bezier(.2,.8,.2,1);
+}
+.halo::before{
+  content:'';position:absolute;inset:-14%;border-radius:50%;
+  background:repeating-conic-gradient(rgba(255,244,180,.34) 0 5deg,transparent 5deg 15deg);
+  -webkit-mask:radial-gradient(circle,#000 10%,transparent 60%);mask:radial-gradient(circle,#000 10%,transparent 60%);
+}
+.stage.lit .halo{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#bgFlowers{z-index:2;transition:filter 1.8s ease,opacity 1.8s ease}
+.stage.lit #bgFlowers{filter:saturate(.5) brightness(1.03);opacity:.88}
+#fgFlowers{z-index:5}
+.lily-svg{
+  position:absolute;z-index:4;left:50%;bottom:-6px;height:94%;width:auto;aspect-ratio:320/600;
+  transform:translateX(-50%);overflow:visible;pointer-events:none;
+  filter:drop-shadow(0 6px 14px rgba(120,90,60,.18));
+}
+.stage.lit .lily-svg{filter:drop-shadow(0 0 18px rgba(255,236,150,.85)) drop-shadow(0 6px 14px rgba(120,90,60,.18));transition:filter 1.8s ease}
+.sway{transform-origin:50% 100%;animation:sway 4.4s ease-in-out infinite;pointer-events:visiblePainted;cursor:pointer}
+.lily-sway{transform-origin:160px 600px;animation:lilysway 7s ease-in-out infinite;pointer-events:visiblePainted;cursor:pointer}
+.hint{
+  position:absolute;z-index:7;left:0;right:0;top:12px;text-align:center;font-style:italic;font-size:1.1rem;color:#7a6231;
+  opacity:0;transition:opacity 1.2s ease 1.8s;pointer-events:none;
+}
+.stage.lit .hint{opacity:.85}
+.stage.lit .hint.gone{opacity:0;transition-delay:0s}
+.sp,.tw{
+  position:absolute;z-index:8;pointer-events:none;
+  width:var(--sz,12px);height:var(--sz,12px);margin:calc(var(--sz,12px)/-2) 0 0 calc(var(--sz,12px)/-2);
+  background:linear-gradient(135deg,#fffdf0,#ffd84a);
+  clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);
+}
+.sp{animation:spark .95s ease-out forwards}
+.tw{animation:twink 2.4s ease-in-out forwards}
+.toast{
+  position:absolute;z-index:9;pointer-events:none;white-space:nowrap;padding:.15rem 1rem .25rem;border-radius:999px;
+  background:rgba(255,252,240,.96);color:#8a5a00;font-weight:600;font-size:1.1rem;line-height:1.5;
+  box-shadow:0 8px 22px rgba(120,90,10,.22);opacity:0;transform:translate(-50%,-110%) scale(.85);
+  transition:opacity .3s ease,transform .3s ease;
+}
+.toast.show{opacity:1;transform:translate(-50%,-135%) scale(1)}
+
+/* ================= ATARDECER: VERSÍCULO Y CIERRE ================= */
+.dusk{
+  position:relative;padding:170px 22px 90px;text-align:center;
+  background:linear-gradient(180deg,#7fbb69 0,#a9d78c 60px,#f0eeb0 170px,#ffe9a6 45%,#ffd79a 72%,#ffc39a 100%);
+}
+.caption{font-family:var(--script);font-size:clamp(2.6rem,10vw,3.8rem);line-height:1.15;color:#c47a00;margin-bottom:1.6rem}
+.verse{max-width:34rem;margin:0 auto}
+.verse-text{font-style:italic;font-weight:500;font-size:clamp(1.75rem,6.6vw,2.4rem);line-height:1.4;color:#503826}
+.ref{margin-top:.7rem;font-size:1.2rem;color:#8b6a1f}
+.divider{display:flex;justify-content:center;gap:14px;margin:3rem 0 2.2rem}
+.faith{max-width:30rem;margin:0 auto;font-size:1.3rem;line-height:1.85;color:#553a28}
+.final{margin-top:3.6rem}
+.final-script{font-family:var(--script);font-size:clamp(3rem,13vw,5rem);line-height:1.1;color:#cf5f89;text-shadow:0 2px 0 rgba(255,255,255,.55)}
+.bless{font-style:italic;font-size:1.55rem;color:#6d442d;margin-top:.2rem}
+.counter{margin-top:2.6rem;color:#6a4a36;font-size:1.2rem}
+.counter .nums{display:flex;justify-content:center;flex-wrap:wrap;gap:.1rem 1.2rem;margin-top:.1rem}
+.counter b{font-weight:700;font-size:2.1rem;color:#a76b00;font-variant-numeric:tabular-nums;margin-right:.25rem}
+.again{
+  margin-top:2.6rem;padding:.45rem 1.8rem .6rem;border:1.5px solid rgba(160,110,10,.55);border-radius:999px;cursor:pointer;
+  background:rgba(255,255,255,.35);font-family:var(--script);font-size:1.8rem;line-height:1.2;color:#7d5300;transition:background .25s ease;
+}
+.again:hover{background:rgba(255,255,255,.7)}
+.foot{margin-top:3rem;font-style:italic;font-size:1.05rem;color:#8a5a3a}
+
+/* aparición suave (solo opacidad) */
+.js .reveal{opacity:0;transition:opacity 1.7s ease}
+.js .reveal.in{opacity:1}
+
+/* ================= ANIMACIONES ================= */
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes drift{from{transform:translateX(-45vw)}to{transform:translateX(125vw)}}
+@keyframes flash{0%{opacity:0}35%{opacity:1}100%{opacity:0}}
+@keyframes spark{0%{transform:translate(0,0) scale(.2) rotate(0);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1) rotate(140deg);opacity:0}}
+@keyframes twink{0%{transform:scale(0) rotate(0);opacity:0}45%{opacity:1;transform:scale(1) rotate(50deg)}100%{transform:scale(0) rotate(100deg);opacity:0}}
+@keyframes sway{0%,100%{transform:rotate(-2.4deg)}50%{transform:rotate(2.4deg)}}
+@keyframes lilysway{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg)}}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .drifter{animation:none;transform:translateX(30vw)}
 }
 </style>
+<noscript><style>.cover{display:none}body.locked{overflow:auto}.hero-text>*,.scroll-hint,.tree-glow{opacity:1}</style></noscript>
 </head>
 
-<body>
+<body class="locked">
 
+<!-- Gradientes y formas compartidas (no se ven) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gPetal" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="-118">
+      <stop offset="0" stop-color="#dbe58f"/><stop offset=".13" stop-color="#fffbe4"/><stop offset=".5" stop-color="#ffffff"/>
+      <stop offset=".84" stop-color="#fde2ee"/><stop offset="1" stop-color="#f2a9c6"/>
+    </linearGradient>
+    <linearGradient id="gPetalBack" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="-118">
+      <stop offset="0" stop-color="#cfdc86"/><stop offset=".16" stop-color="#f6f1d8"/><stop offset=".55" stop-color="#fbeaf1"/><stop offset="1" stop-color="#ec9dbd"/>
+    </linearGradient>
+    <linearGradient id="gLeaf" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="-132">
+      <stop offset="0" stop-color="#357a45"/><stop offset="1" stop-color="#88c67a"/>
+    </linearGradient>
+    <linearGradient id="gBud" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="-98">
+      <stop offset="0" stop-color="#cfe0a0"/><stop offset=".35" stop-color="#fff6ea"/><stop offset="1" stop-color="#f2a9c6"/>
+    </linearGradient>
+    <radialGradient id="gThroat"><stop offset="0" stop-color="#d3e37a" stop-opacity=".95"/><stop offset="1" stop-color="#d3e37a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gAnther" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dd6a20"/><stop offset="1" stop-color="#9a3e10"/></linearGradient>
+    <linearGradient id="gCloud" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#deeffa"/></linearGradient>
+    <linearGradient id="gHill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93d17a"/><stop offset="1" stop-color="#5f9f56"/></linearGradient>
+    <symbol id="cloud" viewBox="0 0 200 100">
+      <path d="M50,88C22,88 12,58 36,48C34,22 66,12 82,30C92,8 132,10 140,36C166,28 186,52 168,70C178,86 160,88 150,88Z" fill="url(#gCloud)"/>
+    </symbol>
+  </defs>
+</svg>
 
-<!-- =========================================================
-     APERTURA
-========================================================= -->
-
-<div id="opening">
-
-  <div class="opening-glow"></div>
-
-  <div class="opening-card">
-
-    <div class="opening-flower" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <i></i>
-    </div>
-
-    <div class="opening-kicker">
-      Un pequeño jardín para ti
-    </div>
-
-    <div class="opening-name">
-      Abigail
-    </div>
-
-    <div class="opening-date">
-      21 de septiembre · flores amarillas
-    </div>
-
-    <p class="opening-text">
-      Hay detalles que no necesitan decirlo todo.
-      A veces basta con crear un pequeño lugar donde
-      un pensamiento bonito pueda florecer.
-    </p>
-
-    <button class="open-button" id="openButton">
-      Abrir el jardín 🌼
-    </button>
-
-    <div class="open-note">
-      hecho con mucho cariño
-    </div>
-
-  </div>
+<!-- ============ PORTADA ============ -->
+<div class="cover" id="cover">
+  <div class="sparks" id="sparks" aria-hidden="true"></div>
+  <div class="flash" aria-hidden="true"></div>
+  <p class="cv-date">21 de septiembre</p>
+  <h1 class="cv-title">Para Abi</h1>
+  <div class="bud-wrap"><svg id="budSvg" class="bud" viewBox="-150 -140 300 340" aria-hidden="true"></svg></div>
+  <p class="cv-sub">Hoy es día de flores amarillas, y hay algo que quise regalarte.</p>
+  <button class="btn-open" id="openBtn" type="button">Abrir</button>
 </div>
 
+<button class="snd" id="snd" type="button" aria-label="Activar o silenciar el sonido" aria-pressed="true">
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 17V5l10-2v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="17.5" r="2.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="2.6" fill="currentColor"/></svg>
+</button>
 
-<div id="petals" aria-hidden="true"></div>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero">
-
+<!-- ============ EL ÁRBOL ============ -->
+<header class="hero" id="hero">
   <div class="sky"></div>
+  <div class="sunwrap" aria-hidden="true"><div class="rays"></div><div class="sun"></div></div>
 
-  <div class="sun"></div>
-
-  <div class="cloud a"></div>
-  <div class="cloud b"></div>
-
-  <div class="hills"></div>
-
-
-  <!-- ÁRBOL -->
-
-  <div class="tree" aria-hidden="true">
-
-    <div class="trunk"></div>
-
-    <div class="branch b1"></div>
-    <div class="branch b2"></div>
-    <div class="branch b3"></div>
-    <div class="branch b4"></div>
-    <div class="branch b5"></div>
-
-    <div class="crown">
-
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-      <div class="blossom"></div>
-
+  <div class="drifters" aria-hidden="true">
+    <div class="drifter d1"><svg viewBox="0 0 200 100"><use href="#cloud" width="200" height="100"/></svg></div>
+    <div class="drifter d2"><svg viewBox="0 0 200 100"><use href="#cloud" width="200" height="100"/></svg></div>
+    <div class="drifter d3"><svg viewBox="0 0 200 100"><use href="#cloud" width="200" height="100"/></svg></div>
+    <div class="drifter d4">
+      <svg viewBox="0 0 200 100">
+        <use href="#cloud" width="200" height="100"/>
+        <g fill="none" stroke="#6f8ea4" stroke-width="3" stroke-linecap="round">
+          <path d="M76 57q6 6 12 0"/><path d="M110 57q6 6 12 0"/><path d="M94 66q5 5 10 0"/>
+        </g>
+        <ellipse cx="68" cy="66" rx="7" ry="4.2" fill="#ffb3c6" opacity=".75"/>
+        <ellipse cx="130" cy="66" rx="7" ry="4.2" fill="#ffb3c6" opacity=".75"/>
+      </svg>
     </div>
-
   </div>
 
+  <svg class="hills-back" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,18C12,8 26,10 38,15C52,20 62,6 78,9C90,11 96,16 100,14L100,30L0,30Z" fill="#c4e6ac"/>
+    <path d="M0,22C14,14 30,20 46,18C62,16 78,12 100,20L100,30L0,30Z" fill="#a5d68f"/>
+  </svg>
 
-  <!-- MENSAJE -->
+  <div class="tree-glow" aria-hidden="true"></div>
+  <canvas id="tree" role="img" aria-label="Un árbol lleno de flores amarillas"></canvas>
 
-  <div class="hero-content">
+  <svg class="hill-front" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,10C18,3 34,9 52,6C70,3 86,4 100,8L100,30L0,30Z" fill="url(#gHill)"/>
+  </svg>
+  <div class="meadow" id="meadow" aria-hidden="true"></div>
 
-    <div class="hero-kicker">
-      Para alguien muy especial
-    </div>
-
-    <h1 class="hero-title">
-      Mi Abi
-    </h1>
-
-    <div class="badge">
-      🌼 21 DE SEPTIEMBRE · FLORES AMARILLAS 🌼
-    </div>
-
-    <p class="hero-copy">
-
-      Entre tantas flores puede haber una que simplemente
-      hace que uno se detenga un momento.
-
-      <br><br>
-
-      Y si tuviera que buscar una flor para describirte,
-      <strong>pensaría en un lirio.</strong>
-
-      <br><br>
-
-      No porque las demás no sean hermosas,
-      sino porque tú tienes una manera muy tuya
-      de resaltar sin necesidad de compararte con nadie.
-
-    </p>
-
+  <div class="hero-text">
+    <p class="god">Dios es bueno</p>
+    <p class="date">21 de septiembre</p>
+    <h2 class="title">Feliz Día de las<br>Flores Amarillas</h2>
+    <p class="for">para ti, Abi</p>
   </div>
 
+  <a class="scroll-hint" href="#carta" aria-label="Bajar">
+    desliza
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</header>
 
-  <div class="scroll">
-    DESLIZA
-    <span>⌄</span>
-  </div>
-
+<!-- ============ LA CARTA ============ -->
+<section class="letter" id="carta">
+  <article class="paper reveal">
+    <span class="orn" id="orn"></span>
+    <p class="hello">Querida Abi,</p>
+    <p>Hoy, en el día de las flores amarillas, quise regalarte un árbol que florece solo para ti.</p>
+    <p>Dios es mi luz sobre todo, y en Su bondad puso en mi camino a alguien muy especial. Cuanto más tiempo pasa, más descubro la luz tan bonita que hay en ti.</p>
+    <p class="last">Con mucho cariño</p>
+  </article>
 </section>
 
-
-
-<!-- =========================================================
-     CARTA
-========================================================= -->
-
-<section class="section">
-
-  <div class="inner">
-
-    <div class="eyebrow">
-      Un pensamiento
-    </div>
-
-    <h2 class="section-title">
-      Algo que quería decirte
-    </h2>
-
-
-    <div class="letter">
-
-      <p>
-
-        A veces pienso que la vida se parece un poco a caminar por un jardín.
-
-        Hay muchas flores, cada una con su forma, su color y su propia belleza.
-
-        <br><br>
-
-        Pero entre todas ellas siempre puede aparecer una que hace que uno
-        mire un poquito más despacio.
-
-        <br><br>
-
-        <span class="highlight">
-          Así es como te veo a ti.
-        </span>
-
-        <br><br>
-
-        Como un lirio entre tantas flores: delicado, diferente y hermoso a su manera.
-
-        No necesita llamar la atención para ser especial; simplemente está ahí,
-        siendo lo que Dios permitió que fuera.
-
-        <br><br>
-
-        Quizá por eso me gusta tanto esa imagen cuando pienso en ti.
-
-        Hay algo en tu forma de ser que no siento igual a la de las demás.
-
-        Y aunque todavía estamos esperando aquello que Dios tenga preparado,
-        agradezco poder coincidir contigo en este camino.
-
-        <br><br>
-
-        Solo quería dejarte este pequeño detalle para recordarte algo sencillo:
-
-        <span class="highlight">
-          te quiero mucho
-        </span>,
-
-        y deseo sinceramente que sigas floreciendo en todo aquello que haces
-        para el Señor.
-
-      </p>
-
-    </div>
-
+<!-- ============ EL JARDÍN ============ -->
+<section class="garden" id="jardin">
+  <div class="garden-text">
+    <p class="reveal">Es como entrar a un jardín y ver muchas flores hermosas…</p>
+    <p class="reveal">…pero hay una que resalta entre todas, diferente a las demás.</p>
   </div>
 
-</section>
-
-
-
-<!-- =========================================================
-     CANTARES
-========================================================= -->
-
-<section class="section">
-
-  <div class="inner">
-
-    <div class="verse">
-
-      <div class="eyebrow">
-        La Palabra de Dios
-      </div>
-
-      <p>
-
-        “Como el lirio entre los espinos,<br>
-        así es mi amiga entre las doncellas.”
-
-      </p>
-
-      <div class="ref">
-        Cantares 2:2 · RVR1960
-      </div>
-
-    </div>
-
+  <div class="stage" id="stage">
+    <div class="halo" aria-hidden="true"></div>
+    <svg class="layer" id="bgFlowers" aria-hidden="true"></svg>
+    <svg class="lily-svg" id="lily" viewBox="0 0 320 600" role="img" aria-label="Un lirio blanco y rosado que resalta entre todas las flores"></svg>
+    <svg class="layer" id="fgFlowers" aria-hidden="true"></svg>
+    <p class="hint" id="hint">toca las flores</p>
+    <div class="toast" id="toast" aria-live="polite"></div>
   </div>
-
 </section>
 
+<!-- ============ VERSÍCULO Y CIERRE ============ -->
+<section class="dusk">
+  <p class="caption reveal">Tú eres ese lirio, Abi.</p>
 
+  <blockquote class="verse reveal">
+    <p class="verse-text">Como el lirio entre los espinos, así es mi amiga entre las doncellas.</p>
+    <p class="ref">Cantares 2:2</p>
+  </blockquote>
 
-<!-- =========================================================
-     JARDÍN DE LIRIOS
-========================================================= -->
+  <div class="divider reveal" id="divider" aria-hidden="true"></div>
 
-<section class="section">
+  <p class="faith reveal">Tu fe y tu corazón para el Señor son admirables. Sigue esforzándote cada día en las cosas de Dios y nunca te alejes de Él, porque Su amor es nuestra roca.</p>
 
-  <div class="inner">
+  <div class="final reveal">
+    <p class="final-script">Te quiero mucho, Abi</p>
+    <p class="bless">Dios te bendiga siempre</p>
 
-    <div class="eyebrow">
-      Porque sé que te gustan
+    <div class="counter">
+      <p>Contando bendiciones</p>
+      <div class="nums">
+        <span><b id="cd">0</b>días</span>
+        <span><b id="ch">0</b>horas</span>
+        <span><b id="cm">0</b>min</span>
+        <span><b id="cs">0</b>s</span>
+      </div>
     </div>
 
-    <h2 class="section-title">
-      Un jardín de lirios
-    </h2>
-
-
-    <div class="garden">
-
-      <div class="garden-sun"></div>
-
-      <div class="garden-caption">
-        entre tantas flores...
-      </div>
-
-      <div class="grass"></div>
-
-
-      <!-- LIRIOS -->
-
-      <div class="lily l1">
-
-        <div class="head">
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="center"></div>
-        </div>
-
-        <div class="leaf"></div>
-        <div class="stem"></div>
-
-      </div>
-
-
-      <div class="lily l2">
-
-        <div class="head">
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="center"></div>
-        </div>
-
-        <div class="leaf"></div>
-        <div class="stem"></div>
-
-      </div>
-
-
-      <div class="lily l3">
-
-        <div class="head">
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="center"></div>
-        </div>
-
-        <div class="leaf"></div>
-        <div class="stem"></div>
-
-      </div>
-
-
-      <div class="lily l4">
-
-        <div class="head">
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="center"></div>
-        </div>
-
-        <div class="leaf"></div>
-        <div class="stem"></div>
-
-      </div>
-
-
-      <div class="lily l5">
-
-        <div class="head">
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="center"></div>
-        </div>
-
-        <div class="leaf"></div>
-        <div class="stem"></div>
-
-      </div>
-
-
-      <div class="lily l6">
-
-        <div class="head">
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="center"></div>
-        </div>
-
-        <div class="leaf"></div>
-        <div class="stem"></div>
-
-      </div>
-
-
-      <!-- LIRIO PRINCIPAL -->
-
-      <div class="special">
-
-        <div class="lily">
-
-          <div class="head">
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="center"></div>
-          </div>
-
-          <div class="leaf"></div>
-          <div class="stem"></div>
-
-        </div>
-
-      </div>
-
-      <div class="special-label">
-        mi lirio 🌷
-      </div>
-
-    </div>
-
+    <button class="again" id="again" type="button">Ver el árbol florecer otra vez</button>
+    <p class="foot">Feliz Día de las Flores Amarillas</p>
   </div>
-
 </section>
-
-
-
-<!-- =========================================================
-     FLORES AMARILLAS
-========================================================= -->
-
-<section class="september">
-
-  <div class="inner">
-
-    <h2>
-      Flores amarillas
-    </h2>
-
-    <div class="date">
-      21 DE SEPTIEMBRE
-    </div>
-
-    <p>
-
-      Hoy el jardín se viste de amarillo y, entre tantos pétalos,
-      quería dejarte algo que tuviera un significado más nuestro.
-
-      <br><br>
-
-      Sé que te gustan mucho los lirios, así que este pequeño jardín
-      no podía tener solamente flores amarillas.
-
-      Tenía que tener también ese lirio que, para mí,
-      representa lo diferente y especial que veo en ti.
-
-      <br><br>
-
-      Que este día sea un pequeño recordatorio de que hay personas
-      que llegan a nuestra vida y, simplemente siendo ellas mismas,
-      dejan un lugar bonito en nuestros pensamientos.
-
-    </p>
-
-
-    <div class="yellow-row" aria-hidden="true">
-      <i></i>
-      <i></i>
-      <i></i>
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FE
-========================================================= -->
-
-<section class="section">
-
-  <div class="inner">
-
-    <div class="eyebrow">
-      Lo más importante
-    </div>
-
-    <h2 class="section-title">
-      Dios primero
-    </h2>
-
-
-    <div class="faith-grid">
-
-      <article class="card">
-
-        <div class="icon">
-          📖
-        </div>
-
-        <h3>
-          Tu fe
-        </h3>
-
-        <p>
-
-          Admiro ese deseo que tienes de seguir esforzándote
-          en las cosas del Señor.
-
-          Que nunca falte en ti ese deseo
-          de buscarlo y caminar con Él.
-
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">
-          🌱
-        </div>
-
-        <h3>
-          Sigue floreciendo
-        </h3>
-
-        <p>
-
-          Que Dios siga formando tu vida,
-          fortaleciendo tu espíritu
-          y guiando cada uno de tus pasos.
-
-          Lo más hermoso será siempre
-          aquello que Él tenga preparado
-          conforme a Su voluntad.
-
-        </p>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FINAL
-========================================================= -->
-
-<section class="final">
-
-  <div class="final-box">
-
-    <div class="final-small">
-      Antes de cerrar este pequeño jardín
-    </div>
-
-    <h2>
-      Para Abigail 🌷
-    </h2>
-
-    <p>
-
-      No sé qué tendrá preparado Dios para cada uno de nuestros caminos,
-      y tampoco quiero adelantarme a lo que solamente Él conoce.
-
-      <br><br>
-
-      Por ahora, me quedo con la alegría de haberte conocido,
-      con los momentos compartidos y con la oportunidad de desearte
-      cosas bonitas mientras seguimos esperando Su voluntad.
-
-      <br><br>
-
-      Que el Señor cuide tu vida, tu corazón y cada uno de tus sueños.
-
-      Y que nunca olvides que hay alguien que te aprecia,
-      que te quiere mucho y que siempre deseará verte florecer.
-
-    </p>
-
-    <div class="final-sign">
-      Con mucho cariño, Daniel
-    </div>
-
-    <div class="final-flower">
-      🌼 🌷 🌼
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-  <strong>
-    Un pequeño jardín para Abigail
-  </strong>
-
-  <span>
-    21 de septiembre · hecho con cariño y con Dios primero
-  </span>
-
-</footer>
-
-
 
 <script>
+(function(){
+'use strict';
 
-const opening =
-  document.getElementById("opening");
+/* ================= AJUSTES ================= */
+const START_DATE='2024-03-21T00:00:00';   // desde cuándo cuenta el contador de bendición
+/* ============================================ */
 
-const button =
-  document.getElementById("openButton");
+const $=(s,r)=>(r||document).querySelector(s);
+const $$=(s,r)=>Array.from((r||document).querySelectorAll(s));
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const f1=n=>n.toFixed(1);
+const reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+function mulberry32(a){return function(){let t=a+=0x6D2B79F5;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}}
 
-const petals =
-  document.getElementById("petals");
+if('scrollRestoration' in history) history.scrollRestoration='manual';
+window.scrollTo(0,0);
 
-
-function createPetal(){
-
-  const p =
-    document.createElement("span");
-
-  p.className =
-    "petal";
-
-  p.style.left =
-    Math.random()*100 + "vw";
-
-  p.style.setProperty(
-    "--dur",
-    (5 + Math.random()*5) + "s"
-  );
-
-  p.style.setProperty(
-    "--x1",
-    (Math.random()*160-80) + "px"
-  );
-
-  p.style.setProperty(
-    "--x2",
-    (Math.random()*220-110) + "px"
-  );
-
-  p.style.setProperty(
-    "--x3",
-    (Math.random()*180-90) + "px"
-  );
-
-  p.style.setProperty(
-    "--x4",
-    (Math.random()*240-120) + "px"
-  );
-
-  p.style.width =
-    (9 + Math.random()*8) + "px";
-
-  p.style.height =
-    (14 + Math.random()*10) + "px";
-
-  petals.appendChild(p);
-
-  setTimeout(
-    ()=>p.remove(),
-    11000
-  );
+/* ================= FLORES PEQUEÑAS (SVG) ================= */
+function daisy(x,y,r,c,c2){
+  let s='';
+  for(let i=0;i<12;i++) s+=`<ellipse cx="${f1(x)}" cy="${f1(y-r*.52)}" rx="${f1(r*.17)}" ry="${f1(r*.5)}" transform="rotate(${i*30} ${f1(x)} ${f1(y)})" fill="${c}"/>`;
+  return s+`<circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(r*.26)}" fill="${c2}"/>`;
+}
+function fivePetal(x,y,r,c,c2){
+  let s='';
+  for(let i=0;i<5;i++) s+=`<circle cx="${f1(x)}" cy="${f1(y-r*.5)}" r="${f1(r*.45)}" transform="rotate(${i*72} ${f1(x)} ${f1(y)})" fill="${c}"/>`;
+  return s+`<circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(r*.24)}" fill="${c2}"/>`;
+}
+function tulip(x,y,r,c){
+  const X=v=>f1(x+v*r),Y=v=>f1(y+v*r);
+  return `<path d="M${X(-.7)},${Y(-.9)}C${X(-.75)},${Y(.3)} ${X(-.3)},${Y(.75)} ${X(0)},${Y(.75)}C${X(.3)},${Y(.75)} ${X(.75)},${Y(.3)} ${X(.7)},${Y(-.9)}L${X(.32)},${Y(-.25)}L${X(0)},${Y(-1.05)}L${X(-.32)},${Y(-.25)}Z" fill="${c}"/>`;
+}
+function blossomIcon(size){
+  return `<svg viewBox="-20 -20 40 40" width="${size}" height="${size}" aria-hidden="true">${fivePetal(0,0,17,'#ffd23a','#ef9d00')}</svg>`;
 }
 
+/* ================= EL LIRIO ================= */
+const PETAL_OUT='M0,0C16,-10 30,-38 24,-64C20,-82 9,-100 0,-118C-9,-100 -20,-82 -24,-64C-30,-38 -16,-10 0,0Z';
+const PETAL_IN ='M0,0C18,-10 34,-36 28,-62C23,-80 10,-98 0,-114C-10,-98 -23,-80 -28,-62C-34,-36 -18,-10 0,0Z';
+const VEINS='M0,-12L0,-98M0,-16C9,-36 11,-64 6,-90M0,-16C-9,-36 -11,-64 -6,-90';
+const FRECK=[[-6,-34],[7,-41],[-3,-52],[10,-57],[-10,-59],[2,-68],[-6,-73],[6,-27],[-12,-45],[12,-70]];
+const FRECK_SVG=FRECK.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="1.35"/>`).join('');
 
-function bloom(){
-
-  for(
-    let i=0;
-    i<34;
-    i++
-  ){
-
-    setTimeout(
-      createPetal,
-      i*45
-    );
-
+function petal(inner,ang,anim,cl,dl){
+  const body=`<path d="${inner?PETAL_IN:PETAL_OUT}" fill="url(#${inner?'gPetal':'gPetalBack'})" stroke="rgba(226,122,166,.32)" stroke-width="1"/>`+
+    `<path d="${VEINS}" fill="none" stroke="rgba(233,128,170,.5)" stroke-width="1.15" stroke-linecap="round"/>`+
+    `<g fill="#e27aa6" opacity=".5">${FRECK_SVG}</g>`;
+  return anim
+    ? `<g class="petal" style="--a:${ang}deg;--c:${cl}deg;--sx:${inner?.68:.5};--dl:${dl}s">${body}</g>`
+    : `<g transform="rotate(${ang})">${body}</g>`;
+}
+function stamens(){
+  let s='<g class="stamens">';
+  for(let i=0;i<6;i++){
+    s+=`<g transform="rotate(${i*60+30})"><path d="M0,-6C1,-30 4,-46 8,-58" fill="none" stroke="#efe6b3" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="9" cy="-64" rx="3.5" ry="9.5" transform="rotate(14 9 -64)" fill="url(#gAnther)"/></g>`;
   }
-
-  setInterval(
-    createPetal,
-    420
-  );
+  return s+`<path d="M0,0C-1,-30 2,-52 4,-72" fill="none" stroke="#d6e08f" stroke-width="3" stroke-linecap="round"/><circle cx="4" cy="-74" r="4.4" fill="#c7d874"/></g>`;
+}
+function lilyHead(anim){
+  const closed=[-9,9,0,-4.5,4.5,0];
+  let s='',i=0;
+  [0,120,240].forEach(a=>{s+=petal(false,a,anim,closed[i],(i*.05).toFixed(2));i++});
+  [60,180,300].forEach(a=>{s+=petal(true,a,anim,closed[i],(i*.05).toFixed(2));i++});
+  return s+'<circle class="throat" r="17" fill="url(#gThroat)"/>'+stamens();
+}
+function leaf(x,y,a,s){
+  return `<g transform="translate(${x} ${y}) rotate(${a}) scale(${s})"><path d="M0,0C15,-22 24,-72 9,-132C-6,-80 -20,-36 0,0Z" fill="url(#gLeaf)"/><path d="M0,-4C4,-40 6,-80 8,-124" fill="none" stroke="rgba(255,255,255,.38)" stroke-width="1.4" stroke-linecap="round"/></g>`;
+}
+function budShape(x,y,a,s){
+  return `<g transform="translate(${x} ${y}) rotate(${a}) scale(${s})"><path d="M0,0C18,-16 24,-52 0,-98C-24,-52 -18,-16 0,0Z" fill="url(#gBud)" stroke="rgba(226,122,166,.3)" stroke-width="1"/><path d="M0,-8C0,-40 0,-66 0,-90" fill="none" stroke="rgba(233,128,170,.5)" stroke-width="1.2"/></g>`;
+}
+function buildCoverBud(){
+  $('#budSvg').innerHTML=
+   `<path d="M0,4C-5,56 6,112 0,196" fill="none" stroke="#4f9450" stroke-width="8" stroke-linecap="round"/>`+
+   `<path d="M1.5,10C-2,58 8,110 2,190" fill="none" stroke="#8cc783" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>`+
+   leaf(0,152,-56,.82)+leaf(0,170,52,.7)+
+   `<g class="tilt">${lilyHead(true)}</g>`;
+}
+function buildLily(){
+  $('#lily').innerHTML=
+  `<g class="lily-sway">
+    <path d="M160,604C158,520 170,430 166,340S168,230 172,170" fill="none" stroke="#4f9450" stroke-width="8" stroke-linecap="round"/>
+    <path d="M161.5,600C160,520 172,430 168,340S170,230 173.5,172" fill="none" stroke="#8cc783" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>
+    ${leaf(160,590,-52,1.05)}${leaf(160,590,50,1)}${leaf(163,505,-62,.9)}${leaf(162,472,58,.85)}${leaf(165,398,-44,.7)}${leaf(167,362,42,.62)}
+    <path d="M167,332C190,320 212,302 226,282" fill="none" stroke="#5aa25c" stroke-width="3.2" stroke-linecap="round"/>
+    ${budShape(226,284,26,.62)}
+    <path d="M166,394C142,384 120,370 104,346" fill="none" stroke="#5aa25c" stroke-width="3" stroke-linecap="round"/>
+    ${budShape(104,348,-30,.5)}
+    <g transform="translate(172 168) rotate(-6) scale(1 .8)">${lilyHead(false)}</g>
+  </g>`;
 }
 
-
-button.addEventListener(
-  "click",
-  ()=>{
-
-    opening.classList.add(
-      "hide"
-    );
-
-    setTimeout(
-      bloom,
-      450
-    );
-
+/* ================= SONIDO (campanitas suaves, generadas en el momento) ================= */
+const Snd=(function(){
+  let ac=null,bus=null,master=null,pad=null,timer=0,on=false;
+  const S=[523.25,587.33,659.25,783.99,880,1046.5,1174.66,1318.51];
+  function init(){
+    if(ac) return true;
+    try{
+      const AC=window.AudioContext||window.webkitAudioContext;
+      if(!AC) return false;
+      ac=new AC();
+      master=ac.createGain();master.gain.value=.6;master.connect(ac.destination);
+      bus=ac.createGain();bus.connect(master);
+      const dl=ac.createDelay(1.5);dl.delayTime.value=.36;
+      const fb=ac.createGain();fb.gain.value=.4;
+      const wet=ac.createGain();wet.gain.value=.5;
+      bus.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(wet);wet.connect(master);
+      return true;
+    }catch(e){ac=null;return false}
   }
-);
+  function note(f,at,dur,vol){
+    if(!ac) return;
+    const o=ac.createOscillator(),o2=ac.createOscillator(),g=ac.createGain(),g2=ac.createGain();
+    o.type='sine';o.frequency.value=f;o2.type='sine';o2.frequency.value=f*2.756;g2.gain.value=.12;
+    g.gain.setValueAtTime(.0001,at);
+    g.gain.exponentialRampToValueAtTime(vol,at+.012);
+    g.gain.exponentialRampToValueAtTime(.0001,at+dur);
+    o.connect(g);o2.connect(g2);g2.connect(g);g.connect(bus);
+    o.start(at);o2.start(at);o.stop(at+dur+.1);o2.stop(at+dur+.1);
+  }
+  function chime(){
+    if(!ac) return;
+    if(ac.state==='suspended') ac.resume();
+    const t=ac.currentTime+.05;
+    [0,2,4,5,7].forEach((n,i)=>note(S[n],t+i*.17,3,.13));
+  }
+  function startPad(){
+    if(pad){pad.gain.setTargetAtTime(.02,ac.currentTime,1.2);return}
+    const g=ac.createGain();g.gain.value=0;
+    const lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=760;
+    [130.81,196,261.63,329.63].forEach((f,i)=>{const o=ac.createOscillator();o.type='sine';o.frequency.value=f*(1+(i-1.5)*.0012);o.connect(lp);o.start()});
+    lp.connect(g);g.connect(master);pad=g;g.gain.setTargetAtTime(.02,ac.currentTime,1.6);
+  }
+  function loop(){
+    if(!on||!ac) return;
+    const t=ac.currentTime+.05,n=Math.random()<.35?2:1;
+    for(let i=0;i<n;i++) note(S[(Math.random()*S.length)|0]*(Math.random()<.2?.5:1),t+i*.24,3.6,.05);
+    timer=setTimeout(loop,2400+Math.random()*3400);
+  }
+  function start(){
+    if(!ac) return;
+    on=true;if(ac.state==='suspended') ac.resume();
+    startPad();clearTimeout(timer);timer=setTimeout(loop,1800);
+  }
+  function stop(){
+    on=false;clearTimeout(timer);
+    if(pad&&ac) pad.gain.setTargetAtTime(0,ac.currentTime,.4);
+  }
+  function toggle(){if(!ac) return false;on?stop():start();return on}
+  function tap(){if(!ac||!on) return;note(S[(Math.random()*S.length)|0],ac.currentTime+.02,2.4,.11)}
+  document.addEventListener('visibilitychange',()=>{
+    if(!ac) return;
+    if(document.hidden) ac.suspend(); else if(on) ac.resume();
+  });
+  return {init,chime,start,toggle,tap};
+})();
 
+/* ================= EL ÁRBOL DE FLORES AMARILLAS (canvas) ================= */
+const Tree=(function(){
+  const cv=$('#tree'),ctx=cv.getContext('2d'),hero=$('#hero');
+  let W=0,Hh=0,dpr=1,cx=0,gy=0,sc=1;
+  let segs=[],leaves=[],blooms=[],glints=[],motes=[];
+  let ext={ax:1,top:-1};
+  let started=false,grown=false,wood=null,raf=0,last=0,t0=0,visible=true;
+  const GROW=4.4;              // segundos que tardan en crecer las ramas
 
-document
-  .querySelectorAll(
-    'a[href^="#"]'
-  )
-  .forEach(a=>{
+  /* ---- sprites (dibujados una vez y reutilizados) ---- */
+  const COLS=[['#ffc61a','#ffe680'],['#ffb800','#ffdd55'],['#ffd23a','#fff0a6'],['#f9b400','#ffd966'],['#ffcc2e','#fff3b0'],['#ffbf0d','#ffe27a']];
+  const bloomSprites=[],leafSprites=[];
+  function makeBloom(c1,c2,rot){
+    const S=96,c=document.createElement('canvas');c.width=c.height=S;
+    const g=c.getContext('2d');g.translate(S/2,S/2);g.rotate(rot);
+    const R=S*.47;
+    for(let i=0;i<5;i++){
+      g.save();g.rotate(i*Math.PI*2/5);
+      g.beginPath();g.moveTo(0,0);
+      g.bezierCurveTo(-R*.62,-R*.18,-R*.74,-R*.86,-R*.18,-R*.98);
+      g.quadraticCurveTo(0,-R*.86,R*.18,-R*.98);
+      g.bezierCurveTo(R*.74,-R*.86,R*.62,-R*.18,0,0);
+      g.closePath();
+      const gr=g.createRadialGradient(0,-R*.12,R*.04,0,-R*.55,R*.66);
+      gr.addColorStop(0,c1);gr.addColorStop(1,c2);
+      g.fillStyle=gr;g.fill();
+      g.lineWidth=1.4;g.strokeStyle='rgba(176,104,0,.32)';g.stroke();
+      g.beginPath();g.moveTo(0,-R*.12);g.lineTo(0,-R*.7);g.lineWidth=1;g.strokeStyle='rgba(196,120,0,.2)';g.stroke();
+      g.restore();
+    }
+    const cg=g.createRadialGradient(0,0,0,0,0,R*.3);
+    cg.addColorStop(0,'#fff3b8');cg.addColorStop(.45,'#f5a800');cg.addColorStop(1,'rgba(230,130,0,0)');
+    g.fillStyle=cg;g.beginPath();g.arc(0,0,R*.3,0,Math.PI*2);g.fill();
+    return c;
+  }
+  function makeLeaf(c1,c2,rot){
+    const S=64,c=document.createElement('canvas');c.width=c.height=S;
+    const g=c.getContext('2d');g.translate(S/2,S*.86);g.rotate(rot);
+    const L=S*.62,Wd=S*.16;
+    g.beginPath();g.moveTo(0,0);g.bezierCurveTo(Wd,-L*.25,Wd*.9,-L*.75,0,-L);g.bezierCurveTo(-Wd*.9,-L*.75,-Wd,-L*.25,0,0);g.closePath();
+    const gr=g.createLinearGradient(0,0,0,-L);gr.addColorStop(0,c1);gr.addColorStop(1,c2);
+    g.fillStyle=gr;g.fill();
+    g.strokeStyle='rgba(255,255,255,.3)';g.lineWidth=1;g.beginPath();g.moveTo(0,-2);g.lineTo(0,-L*.85);g.stroke();
+    return c;
+  }
+  const moteSprite=(function(){
+    const S=32,c=document.createElement('canvas');c.width=c.height=S;
+    const g=c.getContext('2d'),gr=g.createRadialGradient(S/2,S/2,0,S/2,S/2,S/2);
+    gr.addColorStop(0,'rgba(255,248,205,1)');gr.addColorStop(.35,'rgba(255,224,110,.7)');gr.addColorStop(1,'rgba(255,214,90,0)');
+    g.fillStyle=gr;g.fillRect(0,0,S,S);return c;
+  })();
+  function makeSprites(){
+    COLS.forEach(c=>{for(let r=0;r<3;r++) bloomSprites.push(makeBloom(c[0],c[1],r*.7+.2))});
+    [['#4f9a54','#9bd28a'],['#5fae5f','#a8dc94'],['#3f8a4c','#86c67a']].forEach(c=>{[-.6,-.2,.25,.65].forEach(r=>leafSprites.push(makeLeaf(c[0],c[1],r)))});
+  }
 
-    a.addEventListener(
-      "click",
-      e=>{
-
-        const target =
-          document.querySelector(
-            a.getAttribute("href")
-          );
-
-        if(target){
-
-          e.preventDefault();
-
-          target.scrollIntoView({
-            behavior:"smooth"
-          });
-
-        }
-
+  /* ---- generar el árbol (siempre el mismo: semilla = 21-09-2026) ---- */
+  function generate(){
+    const R=mulberry32(21092026);
+    segs=[];leaves=[];blooms=[];glints=[];
+    const tips=[],MAXD=7;
+    (function grow(x,y,dev,len,w,d,ts){
+      const ang=-Math.PI/2+dev,x2=x+Math.cos(ang)*len,y2=y+Math.sin(ang)*len;
+      const dur=d===0?.9:.45,te=ts+dur;
+      const c1=Math.round(74+d*7),c2=Math.round(48+d*6),c3=Math.round(32+d*4);
+      segs.push({x:x,y:y,x2:x2,y2:y2,w0:w,w1:w*.72,d:d,t0:ts,dur:dur,col:`rgb(${c1},${c2},${c3})`});
+      if(d>=MAXD){tips.push({x:x2,y:y2,t:te});return}
+      const n=d<=1?3:d===2?2:(R()<.25?3:2);
+      const spread=d===0?1.5:d===1?1.15:.95;
+      for(let k=0;k<n;k++){
+        const f=n===1?0:(k/(n-1)-.5);
+        const nd=dev*.55+f*spread+(R()-.5)*.32;
+        grow(x2,y2,nd,len*(.74+R()*.09),w*.7,d+1,te+R()*.06);
       }
-    );
+    })(0,0,(R()-.5)*.1,1,.17,0,0);
 
+    const SZ=.11;
+    const add=(x,y,s,t)=>blooms.push({x:x,y:y,s:s*(.72+R()*.62),ph:R()*6.283,sp:.6+R()*.9,t:t,img:bloomSprites[(R()*bloomSprites.length)|0],hf:0});
+    tips.forEach(tp=>{
+      const n=3+((R()*3)|0);
+      for(let i=0;i<n;i++){const a=R()*6.283,r=Math.sqrt(R())*.13;add(tp.x+Math.cos(a)*r,tp.y+Math.sin(a)*r*.9,SZ,tp.t+.2+R()*1.5)}
+    });
+    segs.forEach(s=>{
+      if(s.d>=4&&s.d<MAXD){
+        const n=1+((R()*2)|0);
+        for(let i=0;i<n;i++){
+          const u=.35+R()*.65,a=R()*6.283,r=R()*.1;
+          add(s.x+(s.x2-s.x)*u+Math.cos(a)*r,s.y+(s.y2-s.y)*u+Math.sin(a)*r,SZ*.95,s.t0+s.dur+.2+R()*1.6);
+        }
+      }
+      if(s.d>=3&&s.d<=6&&R()<.55){
+        const u=.4+R()*.6,a=R()*6.283,r=R()*.09;
+        leaves.push({x:s.x+(s.x2-s.x)*u+Math.cos(a)*r,y:s.y+(s.y2-s.y)*u+Math.sin(a)*r,s:.16+R()*.07,ph:R()*6.283,sp:.6+R()*.8,t:s.t0+s.dur+R()*1.2,img:leafSprites[(R()*leafSprites.length)|0],hf:0});
+      }
+    });
+    /* mezclar el orden para que no haya "capas" visibles */
+    for(let i=blooms.length-1;i>0;i--){const j=(R()*(i+1))|0,t=blooms[i];blooms[i]=blooms[j];blooms[j]=t}
+
+    /* medir el árbol para que siempre quepa en la pantalla */
+    let ax=0,top=0;
+    const pt=(x,y,s)=>{ax=Math.max(ax,Math.abs(x)+s/2);top=Math.min(top,y-s/2)};
+    segs.forEach(s=>pt(s.x2,s.y2,0));
+    blooms.forEach(b=>pt(b.x,b.y,b.s));
+    leaves.forEach(l=>pt(l.x,l.y,l.s));
+    ext={ax:ax,top:top};
+    const H=-top;
+    blooms.forEach(b=>{b.hf=clamp(-b.y/H,0,1)});
+    leaves.forEach(l=>{l.hf=clamp(-l.y/H,0,1)});
+    for(let i=0;i<40;i++){const b=blooms[(R()*blooms.length)|0];if(b.hf>.25) glints.push({b:b,ph:R()*6.283,sp:.7+R()*.9})}
+  }
+
+  /* ---- dibujo ---- */
+  function tapered(g,x1,y1,x2,y2,w0,w1,col){
+    const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1,nx=-dy/L,ny=dx/L;
+    g.fillStyle=col;
+    g.beginPath();
+    g.moveTo(x1+nx*w0/2,y1+ny*w0/2);g.lineTo(x2+nx*w1/2,y2+ny*w1/2);
+    g.lineTo(x2-nx*w1/2,y2-ny*w1/2);g.lineTo(x1-nx*w0/2,y1-ny*w0/2);g.closePath();g.fill();
+    g.beginPath();g.arc(x2,y2,w1/2,0,Math.PI*2);g.fill();
+  }
+  function drawWood(g,t,full){
+    for(let i=0;i<segs.length;i++){
+      const s=segs[i];
+      let p=full?1:clamp((t-s.t0)/s.dur,0,1);
+      if(p<=0) continue;
+      if(!full) p=1-(1-p)*(1-p);
+      const x1=cx+s.x*sc,y1=gy+s.y*sc;
+      const x2=cx+(s.x+(s.x2-s.x)*p)*sc,y2=gy+(s.y+(s.y2-s.y)*p)*sc;
+      tapered(g,x1,y1,x2,y2,s.w0*sc,(s.w0+(s.w1-s.w0)*p)*sc,s.col);
+    }
+  }
+  function buildWood(){
+    wood=document.createElement('canvas');wood.width=cv.width;wood.height=cv.height;
+    const g=wood.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);drawWood(g,0,true);
+  }
+  function sprites(list,t,amp,dur){
+    for(let i=0;i<list.length;i++){
+      const b=list[i];
+      let k=(t-b.t)/dur;
+      if(k<=0) continue;
+      if(k>1) k=1;
+      const e=k<1?1+2.4*Math.pow(k-1,3)+1.4*Math.pow(k-1,2):1;
+      const a=amp*(.35+b.hf*1.65),sw=Math.sin(t*b.sp+b.ph);
+      const x=cx+b.x*sc+(sw*.55+Math.sin(t*.42+b.hf*3)*.9)*a;
+      const y=gy+b.y*sc+Math.cos(t*b.sp*.8+b.ph)*a*.3;
+      const s=b.s*sc*e*(1+.045*sw);
+      ctx.drawImage(b.img,x-s/2,y-s/2,s,s);
+    }
+  }
+  function drawGlints(t,amp){
+    ctx.fillStyle='#fffbe8';
+    for(let i=0;i<glints.length;i++){
+      const gl=glints[i],b=gl.b;
+      if(t-b.t<1.3) continue;
+      const v=Math.sin(t*gl.sp+gl.ph);
+      if(v<=.82) continue;
+      const al=(v-.82)/.18,s=b.s*sc*(.6+.9*al);
+      const a=amp*(.35+b.hf*1.65),sw=Math.sin(t*b.sp+b.ph);
+      const x=cx+b.x*sc+(sw*.55+Math.sin(t*.42+b.hf*3)*.9)*a;
+      const y=gy+b.y*sc+Math.cos(t*b.sp*.8+b.ph)*a*.3;
+      ctx.globalAlpha=al*.95;
+      ctx.beginPath();ctx.moveTo(x,y-s);ctx.quadraticCurveTo(x,y,x+s,y);ctx.quadraticCurveTo(x,y,x,y+s);ctx.quadraticCurveTo(x,y,x-s,y);ctx.quadraticCurveTo(x,y,x,y-s);ctx.fill();
+    }
+    ctx.globalAlpha=1;
+  }
+  function drawMotes(t,dt){
+    if(t<3) return;
+    const topY=gy-Hh*.72;
+    for(let i=0;i<motes.length;i++){
+      const m=motes[i];
+      m.y-=m.v*dt;
+      if(m.y<topY){m.y=gy-Hh*.04;m.x=Math.random()*W}
+      const a=Math.min(1,(gy-m.y)/(Hh*.12))*Math.min(1,(m.y-topY)/(Hh*.14));
+      if(a<=0) continue;
+      ctx.globalAlpha=a*m.a;
+      const s=m.r*7,x=m.x+Math.sin(t*.5+m.ph)*10;
+      ctx.drawImage(moteSprite,x-s/2,m.y-s/2,s,s);
+    }
+    ctx.globalAlpha=1;
+  }
+  function draw(t,dt){
+    if(!W||!Hh) return;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,W,Hh);
+    if(t>=GROW) grown=true;
+    if(grown){if(!wood) buildWood();ctx.drawImage(wood,0,0,W,Hh)}
+    else drawWood(ctx,t,false);
+    const amp=sc*.012;
+    sprites(leaves,t,amp,.9);
+    sprites(blooms,t,amp,.9);
+    drawGlints(t,amp);
+    drawMotes(t,dt);
+  }
+  function loop(now){
+    raf=requestAnimationFrame(loop);
+    if(now-last<28) return;
+    const dt=Math.min((now-last)/1000,.1);last=now;
+    draw((now-t0)/1000,dt);
+  }
+  function run(){if(!raf&&started&&!reduce) raf=requestAnimationFrame(loop)}
+  function stop(){if(raf){cancelAnimationFrame(raf);raf=0}}
+  function nowT(){return started?(reduce?30:(performance.now()-t0)/1000):0}
+
+  function layout(){
+    const r=hero.getBoundingClientRect(),nw=Math.round(r.width),nh=Math.round(r.height);
+    if(!nw||!nh) return;
+    const nd=Math.min(window.devicePixelRatio||1,2);
+    if(nw===W&&nh===Hh&&nd===dpr) return;
+    W=nw;Hh=nh;dpr=nd;
+    cv.width=Math.round(W*dpr);cv.height=Math.round(Hh*dpr);
+    cx=W/2;gy=Hh*.885;
+    sc=Math.min(W*.95/(2*ext.ax),Hh*.63/(-ext.top));
+    wood=null;
+    motes=[];
+    for(let i=0;i<34;i++) motes.push({x:Math.random()*W,y:gy-Hh*(.05+Math.random()*.65),r:1.2+Math.random()*2.2,v:5+Math.random()*10,ph:Math.random()*6.283,a:.55+Math.random()*.4});
+    if(started) draw(nowT(),0);
+  }
+  function start(){
+    if(started) return;
+    started=true;
+    t0=performance.now()+(reduce?-30000:200);
+    if(reduce) draw(30,0); else run();
+  }
+  function replay(){
+    if(reduce) return;
+    grown=false;wood=null;t0=performance.now()+400;last=0;run();
+  }
+  function init(){
+    makeSprites();generate();layout();
+    if('ResizeObserver' in window){
+      let to=0;
+      new ResizeObserver(()=>{clearTimeout(to);to=setTimeout(layout,120)}).observe(hero);
+    }else window.addEventListener('resize',layout);
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(es=>{visible=es[0].isIntersecting;visible?run():stop()},{threshold:0}).observe(hero);
+    }
+  }
+  init();
+  return {start,replay};
+})();
+
+/* ================= JARDÍN ================= */
+const stage=$('#stage');
+const TOASTS=['Te quiero mucho','Eres una bendición','Dios te bendiga','Sigue brillando','Eres muy especial','Tu corazón es muy bonito'];
+
+function buildGarden(){
+  const W=stage.clientWidth,H=stage.clientHeight;
+  if(!W||!H) return;
+  const back=$('#bgFlowers'),front=$('#fgFlowers');
+  back.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  front.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const R=mulberry32(20260921),ground=H-34;
+  const pal=[['#f9b9d1','#ffe27a'],['#d8c6f6','#fff0a0'],['#ffffff','#ffcb2e'],['#ffbfa8','#ffe27a'],['#b8e0f7','#fff3b0'],['#f7a8c4','#fff2a8'],['#e9d5ff','#ffe58a']];
+  const yel=[['#ffd54a','#c98500'],['#ffe36e','#e39a00'],['#fff0a0','#e8a10c'],['#ffca28','#b87400']];
+  const pick=()=>R()<.36?yel[(R()*yel.length)|0]:pal[(R()*pal.length)|0];
+  function one(x,h,r){
+    const top=ground-h,mid=ground-h*.5,col=pick(),t=R(),bend=(R()-.5)*16,side=R()<.5?-1:1;
+    const head=t<.38?daisy(x,top,r,col[0],col[1]):t<.78?fivePetal(x,top,r,col[0],col[1]):tulip(x,top,r,col[0]);
+    const lf=`<ellipse cx="${f1(x+side*8)}" cy="${f1(mid)}" rx="8" ry="2.7" transform="rotate(${-side*32} ${f1(x)} ${f1(mid)})" fill="#6cb96b"/>`;
+    const dur=(3.4+R()*2.8).toFixed(2),dl=(-R()*6).toFixed(2);
+    return `<g class="sway" style="transform-origin:${f1(x)}px ${ground}px;animation-duration:${dur}s;animation-delay:${dl}s"><path d="M${f1(x)},${ground+8}Q${f1(x+bend)},${f1(mid)} ${f1(x)},${f1(top)}" fill="none" stroke="#5aa25c" stroke-width="2.2" stroke-linecap="round"/>${lf}${head}</g>`;
+  }
+  /* fila de atrás: muchas flores, las del centro más bajas para que el lirio destaque */
+  const items=[],nBack=Math.round(W/20);
+  for(let i=0;i<nBack;i++){
+    const x=R()*W,cf=.55+.45*Math.min(1,Math.abs(x-W/2)/(W*.4));
+    items.push({x:x,h:(64+R()*H*.36)*cf,r:8+R()*5});
+  }
+  items.sort((a,b)=>b.h-a.h);
+  back.innerHTML=items.map(o=>one(o.x,o.h,o.r)).join('');
+  /* fila de adelante + pasto */
+  let fr='';
+  const nFront=Math.round(W/34);
+  for(let i=0;i<nFront;i++) fr+=one(R()*W,24+R()*52,11+R()*5);
+  const gc=['#5aa653','#4c9a4d','#68b45c','#56a04f'],nb=Math.round(W/4.5);
+  for(let i=0;i<nb;i++){
+    const x=R()*W,h=12+R()*24,lean=(R()-.5)*14;
+    fr+=`<path d="M${f1(x)},${H+2}Q${f1(x+lean*.4)},${f1(H-h*.6)} ${f1(x+lean)},${f1(H-h)}Q${f1(x+lean*.55+1.6)},${f1(H-h*.5)} ${f1(x+3)},${H+2}Z" fill="${gc[i%4]}"/>`;
+  }
+  front.innerHTML=fr;
+}
+
+function burst(x,y,n,big){
+  for(let i=0;i<n;i++){
+    const s=document.createElement('i');
+    s.className='sp';
+    const a=Math.random()*6.283,d=(big?60:34)+Math.random()*(big?90:44);
+    s.style.left=x+'px';s.style.top=y+'px';
+    s.style.setProperty('--dx',Math.cos(a)*d+'px');
+    s.style.setProperty('--dy',Math.sin(a)*d+'px');
+    s.style.setProperty('--sz',(8+Math.random()*(big?12:7))+'px');
+    stage.appendChild(s);
+    setTimeout(()=>s.remove(),1200);
+  }
+}
+let toastTimer=0;
+function toast(x,y,text){
+  const el=$('#toast'),W=stage.clientWidth;
+  el.textContent=text;
+  el.style.left=clamp(x,90,W-90)+'px';
+  el.style.top=Math.max(y,50)+'px';
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove('show'),1900);
+}
+stage.addEventListener('click',e=>{
+  const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+  const hint=$('#hint');if(hint) hint.classList.add('gone');
+  if(e.target.closest&&e.target.closest('#lily')){
+    burst(x,y,20,true);
+    toast(stage.clientWidth/2,stage.clientHeight*.16,'Única entre todas');
+    Snd.tap();
+  }else if(e.target.closest&&e.target.closest('.sway')){
+    burst(x,y,9,false);
+    toast(x,y-14,TOASTS[(Math.random()*TOASTS.length)|0]);
+    Snd.tap();
+  }
+});
+/* destellos suaves alrededor del lirio cuando está iluminado */
+let stageVisible=false;
+setInterval(()=>{
+  if(!stage.classList.contains('lit')||!stageVisible||document.hidden) return;
+  const W=stage.clientWidth,H=stage.clientHeight,s=document.createElement('i');
+  s.className='tw';
+  s.style.left=(W/2+(Math.random()-.5)*Math.min(W*.8,300))+'px';
+  s.style.top=(H*.33+(Math.random()-.5)*Math.min(H*.5,260))+'px';
+  s.style.setProperty('--sz',(9+Math.random()*12)+'px');
+  stage.appendChild(s);
+  setTimeout(()=>s.remove(),2600);
+},650);
+
+/* ================= PORTADA: ABRIR ================= */
+function openGift(){
+  const cover=$('#cover'),bud=$('#budSvg'),snd=$('#snd');
+  if(Snd.init()){Snd.chime();Snd.start()}else snd.style.display='none';
+  cover.classList.add('opening');
+  bud.classList.add('open');
+  setTimeout(()=>{
+    cover.classList.add('gone');
+    document.body.classList.remove('locked');
+    document.body.classList.add('opened');
+    Tree.start();
+  },reduce?200:1900);
+}
+
+/* ================= PUESTA EN MARCHA ================= */
+(function(){
+  /* destellos de la portada */
+  const w=$('#sparks');
+  for(let i=0;i<22;i++){
+    const s=document.createElement('i');
+    s.style.left=(Math.random()*100)+'%';s.style.top=(Math.random()*100)+'%';
+    s.style.animationDelay=(-Math.random()*4)+'s';s.style.animationDuration=(2.6+Math.random()*2.4)+'s';
+    w.appendChild(s);
+  }
+  /* florecitas en la colina */
+  const R=mulberry32(5);let h='';
+  for(let i=0;i<46;i++){
+    const left=R()*100,bottom=4+R()*50,size=9+R()*8,yellow=R()<.6;
+    h+=`<svg style="left:${left.toFixed(1)}%;bottom:${bottom.toFixed(1)}%;width:${size.toFixed(0)}px;height:${size.toFixed(0)}px" viewBox="-10 -10 20 20" aria-hidden="true">${daisy(0,0,9,yellow?'#ffd23a':'#ffffff',yellow?'#e89600':'#ffc93a')}</svg>`;
+  }
+  $('#meadow').innerHTML=h;
+  /* adornos */
+  $('#orn').innerHTML=blossomIcon(52);
+  $('#divider').innerHTML=blossomIcon(22)+blossomIcon(22)+blossomIcon(22);
+
+  buildCoverBud();
+  buildLily();
+  buildGarden();
+  let gt=0;
+  if('ResizeObserver' in window){
+    new ResizeObserver(()=>{clearTimeout(gt);gt=setTimeout(buildGarden,150)}).observe(stage);
+  }else window.addEventListener('resize',()=>{clearTimeout(gt);gt=setTimeout(buildGarden,150)});
+
+  $('#openBtn').addEventListener('click',openGift,{once:true});
+
+  /* botón de sonido */
+  const snd=$('#snd');
+  snd.addEventListener('click',()=>{
+    const on=Snd.toggle();
+    snd.classList.toggle('off',!on);
+    snd.setAttribute('aria-pressed',on?'true':'false');
   });
 
-</script>
+  /* aparecer con suavidad al llegar */
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>{
+      es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    $$('.reveal').forEach(el=>io.observe(el));
+    /* el lirio se ilumina cuando ya se ve bien */
+    new IntersectionObserver(es=>{
+      const e=es[0];
+      stageVisible=e.isIntersecting;
+      if(e.isIntersecting&&e.intersectionRatio>=.5) stage.classList.add('lit');
+    },{threshold:[0,.5]}).observe(stage);
+  }else{
+    $$('.reveal').forEach(el=>el.classList.add('in'));
+    stage.classList.add('lit');
+  }
 
+  /* volver a ver el árbol */
+  $('#again').addEventListener('click',()=>{
+    window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+    setTimeout(()=>Tree.replay(),reduce?0:900);
+  });
+
+  /* contador */
+  const startMs=new Date(START_DATE).getTime();
+  const cd=$('#cd'),ch=$('#ch'),cm=$('#cm'),cs=$('#cs');
+  function tick(){
+    const diff=Math.max(0,Date.now()-startMs);
+    cd.textContent=Math.floor(diff/864e5);
+    ch.textContent=Math.floor(diff/36e5)%24;
+    cm.textContent=Math.floor(diff/6e4)%60;
+    cs.textContent=Math.floor(diff/1e3)%60;
+  }
+  tick();setInterval(tick,1000);
+})();
+
+})();
+</script>
 </body>
 </html>
-```
